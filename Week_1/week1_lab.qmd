@@ -1,0 +1,111 @@
+---
+title: "Week 1 Lab: Introduction to R and RStudio"
+subtitle: "INF2167 - R for Data Science"
+author: "Inessa De Angelis"
+date: "05/07/2026"
+date-format: long
+format: pdf
+execute: 
+  warning: false
+---
+
+In this lab, we'll be working with the flights dataset from the `nycflights23` package. You’ll practice using `tidyverse` functions like `filter()`, `group_by()`, and `mutate()` to explore and analyze the data. The goal is to become comfortable with these functions. 
+
+Before you begin, update the author name in the document front matter to your first and last name. Then, complete the lab by writing your answers directly below each question. Submit both your .qmd file and PDF on Quercus. Note: You may work together in small groups of 2 or 3 to complete this lab, but each member of the group should submit their own files on Quercus.
+
+# Install packages
+Copy the following `install.packages()` commands and run them in your console:
+```{r}
+#| eval: false
+install.packages("tidyverse")
+install.packages("nycflights23")
+```
+
+# Load packages
+Now that we've installed our packages, click the green arrow in the top-right corner of the code chunk to run the code below and load the packages:
+```{r}
+library(tidyverse)
+library(nycflights23)
+```
+
+# Let's look at our dataset
+```{r}
+glimpse(flights)
+```
+
+## Questions
+
+- **How many observations are in this dataset?** 
+
+- **How many variables are in this dataset?** 
+
+# Let's subset our dataset now to look at flights from Frontier Airlines (F9) only 
+```{r}
+f9_flights <- flights |>
+  filter(carrier == "F9")
+```
+
+## Questions
+
+- **What does the `filter()` function do in this context?**
+
+- **What does the "`==`" do in the `filter(carrier == "F9")` line?**
+
+- **How many Frontier Airlines (F9) flights are in the subsetted dataset?** 
+
+# Let's look at our new dataset
+```{r}
+  glimpse(f9_flights)
+```
+
+## Questions
+
+- **How many observations are in this new dataset?** 
+
+- **How many variables are in this new dataset?** 
+
+# Let's look more closely at monthly departures 
+
+Next, we’ll group the data by month using the `group_by()` function, count the number of flights in each month (`count()`), and calculate what percentage of the total each month represents.
+
+```{r}
+  f9_flights |>
+  group_by(month) |>
+  count() |>
+  ungroup() |>
+  mutate(percentage = round(n / sum(n) * 100, 2))
+```
+
+## Questions
+
+- **Which month had for the highest percentage of Frontier Airlines (F9) flights and what is that percentage?**
+
+- **Are flights evenly distributed across months or are some months busier? Please reference the percentage column in your answer.**
+
+# Let's plot our results
+
+Note that `factor(month)` treats months as categories instead of continuous numbers.
+
+```{r}
+ggplot(f9_flights, aes(x = factor(month))) + 
+  geom_bar() +
+  labs(title = "Number of Frontier Airlines (F9) Departures by Month",
+       x = "Month", y = "Number of Flights")
+```
+
+## Questions
+
+- **Which months had the lowest and highest number of Frontier Airlines (F9) departures?**
+
+# Your Turn: Explore Another Carrier
+
+Choose another airline from the `flights` dataset. For example, `"UA"` (United Airlines), `"AA"` (American Airlines), or `"DL"` (Delta Airlines). Create a new R code chunk below each question to respond.
+
+- **Filter the dataset to include only flights from your chosen airline (Hint: use `filter(carrier == "your chosen airline")`)**
+
+- **Create a new column for the percentage of flights each month represents in your subsetted dataset.**
+
+# Optional
+
+- **Create a bar plot to show your results (Hint: modify the graph code from above)**
+ 
