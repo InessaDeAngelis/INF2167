@@ -1,0 +1,108 @@
+---
+title: "Week 2 Lab: Reproducible Workflows and GitHub"
+subtitle: "INF2167 - R for Data Science"
+author: "Inessa De Angelis"
+date: "05/14/2026"
+date-format: long
+format: pdf
+execute: 
+  warning: false
+---
+
+In this lab, we will think through two broad approaches to conceptualizing social science research projects: data-first and question/theory-first. We will also explore simulated data to begin thinking about how social science questions can be translated into tangible research projects. The goal is to start thinking about how to conceptualize a social science research project using data science methods, explore simulated data, and meet your group project partner.  
+
+Before you begin, update the author name in the document front matter to your first and last name. Then, complete the lab by writing your answers directly below each question. Submit your .qmd file and PDF to Inessa via email (inessa.deangelis@mail.utoronto.ca) or by uploading to Quercus. Note: You and your partner should work together on ideas, but each person should submit their own files. 
+
+# Individual: Data vs question/theory-driven research
+
+## Research reflection
+
+In today's lecture, we discussed two broad approaches to research: 
+
+- Data-first: starting with available data and then identifying interesting patterns or questions. 
+
+- Question/theory-first: starting with a theoretical or substantive question and then finding data to answer it. 
+
+
+**Do you tend to think in a data-first or theory-first way? Explain your reasoning in 3–5 sentences.**
+
+
+**Which approach feels more natural to you? (3–5 sentences).**
+
+
+## Preliminary research questions
+
+Now that you've thought a bit about data-first versus questions/theory-first research, let's think about how this could apply to social science research questions of interest to you.
+
+**Write 2–3 possible social science research topics you would be interested in studying within the scope in this class. Try to make your topics specific enough that they could eventually become a research question.**
+
+
+## Potential data sources
+
+There are many different sources of data we use in social science research. Examples: Social media posts or comments, survey data such as the General Social Survey (GSS), open government data, administrative datasets, and web-scraped data. You also may consider any of the datasets listed here:
+
+- [https://tellingstorieswithdata.com/23-datasets.html](https://tellingstorieswithdata.com/23-datasets.html )
+
+- [https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html)  
+
+- [https://vincentarelbundock.github.io/Rdatasets/datasets.html](https://vincentarelbundock.github.io/Rdatasets/datasets.html)  
+
+
+**What datasets or sources of data could you realistically use to study these topics? List 2-3 possible datasets or sources.**
+
+
+### From ideas to data
+
+Now that you've identified possible topics and sources of data, let's think about how one of the ideas you came up with earlier could translate into variables and observations by simulating a dataset. Please simulate a dataset that includes 2-5 key variables (with realistic names) and at least 100 observations. Functions such as `sample()`, `rnorm()`, `runif()`, and `tibble()` may be helpful. You may wish to consult [Chapter 2](https://tellingstorieswithdata.com/02-drinking_from_a_fire_hose.html) of *Telling Stories with Data* for examples of how to simulate different types of datasets. And don't forget to `set.seed()`! 
+
+
+```{r}
+
+# Remove this comment and write the code to simulate your dataset in this chunk
+
+```
+
+**Now, display the first 6 rows of your simulated dataset using `head()`.**
+
+**What would count as an observation in your dataset? And how many observations are in your dataset?**
+
+**Explain in 2-3 sentences whether your simulated data reflects the type of data you would expect to collect in a real project.**
+
+## Research question development
+
+**Write one clear preliminary research question. Then briefly explain in 3-5 sentences why this question is interesting or important. Is your question primarily descriptive, predictive, inferential, or causal? Remember that a strong research question should be specific, refer to a measurable outcome or concept, and be answerable with data you could realistically access.**  
+
+## What is your estimand?
+
+**Write a clear estimand for your research question. Remember from the lecture that the estimand defines exactly what causal or descriptive quantity we want to learn from the data. In your response, try to be as specific as possible about the population of study and outcome.** 
+
+## Bias considerations
+
+**Please identify one source of selection bias and one source of measurement bias for your project idea. Remember that selection bias refers to who might be missing from your data and measurement bias focuses on how our data collection could shape our results. (3-5 sentences)**
+
+
+# Groups: Data vs question/theory-driven research
+
+## Compare Approaches
+
+With your group project partner, please discuss your answers from the "individual" section and compare your approaches. 
+
+**In 3-5 sentences, please summarize your discussion. Do you prefer data-first, question/theory-first, or a mix? How do your approaches differ or overlap? And how might your approaches shape your group project?**
+
+## Synthesizing project ideas
+
+**Together, identify 1 or 2 shared research interests, write 1 research question, and explain in 1-2 sentences why this topic is worth studying.**
+
+## Research design
+
+Please discuss the following questions with your partner and write a 4–6 sentence summary of your conversation.
+
+**What type of data would you like to work with for this project and could you realistically access it?** 
+
+**What might be difficult, unrealistic, or limiting about this project? Are there challenges related to time, data access, ethics, or technical skills?**
+
+**What assumptions would you need to make about your data or research design? What kinds of bias or missing information might affect your conclusions?**
+
+# GitHub
+
+**What is your GitHub account URL? Please write it here. For example, https://github.com/InessaDeAngelis**
