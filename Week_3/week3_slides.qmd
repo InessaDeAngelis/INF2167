@@ -1,0 +1,844 @@
+---
+title: "Data wrangling and visualization"
+subtitle: "INF2167, Week 3"
+date: "May 21, 2026"
+date-format: long
+author: "Inessa De Angelis"
+format:
+  revealjs:
+    pdf-separate-fragments: true
+    theme: [default, custom.scss]
+    highlight-style: github
+    slide-number: true
+bibliography: ref.bib
+csl: apa.csl
+---
+
+## Office Hours
+- Reminder that I have weekly office hours: Mondays from 12:00-1:00pm on Zoom
+- The Zoom link and passcode are on the syllabus
+
+## Objectives
+- Understand key principles of tidy data and why data wrangling is an important step in the research process
+- Use core `tidyverse` functions such as `select()`, `filter()`, `mutate()`, and `arrange()` to clean and transform data [@tidyverse]
+- Apply the pipe operation (`|>`) to develop readable and reproducible data workflows
+- Create basic data visualizations using `ggplot2` to explore and communicate patterns in data
+- Critically reflect on how data visualization choices shape interpretation
+
+## Why data wrangling matters
+- It is said that **80%** of data analysis is spent on the cleaning and preparing stages [@wickham2014]
+- Real-world data is messy and is not ready for analysis the minute we collect it 
+- Variables may be inconsistent or incomplete without doing data wrangling 
+- The structure of your data and dataset can affect the types of research questions you can realistically ask and answer 
+
+## What is tidy data?
+- “Tidy” data is a standard way of mapping the meaning of a dataset to its structure 
+- In "tidy" data:
+
+  - Each variable forms a column
+  
+  - Each observation forms a row
+  
+  - Each type of observational unit forms a table
+
+## Why is tidy data important?
+- Why do you think tidy data is important for doing data science?
+
+## Why tidy data matters
+- Easier to analyze
+
+  - Simplifies creating descriptive statistics, visualizations, and statistical modeling
+  
+- Reduces errors
+
+  - Avoids duplicated values and missing labels
+  
+  - Easier to spot missing data, inconsistencies, and data quality issues
+
+- Improves reproducibility
+  
+  - Easier for future us and others to understand and repeat
+
+  - Makes collaboration and version control more reliable
+
+```{r}
+#| echo: false
+library(here) 
+library(tidyverse)
+mps_twitter <- read_csv(here("slides/mps_twitter.csv"), show_col_types = FALSE)
+```
+
+## Core `tidyverse` functions for data tidying and wrangling
+- The `tidyverse` is a package of packages, which means when we install the `tidyverse`, we actually install a bunch of different packages [@alexander2023] 
+- The key packages in the `tidyverse` for tidying and manipulating data are `tidyr` [@tidyr] and `dplyr` [@dplyr]
+- We are going to focus on few functions such as `pivot_longer`, `select()`, `filter()`, `mutate()`, and `arrange()` today, but this week's assigned chapters from *Modern Dive* and *Telling Stories with Data* (plus Appendix A assigned in Week 1) cover additional functions 
+
+## Quick reminder: The pipe (|>) operator
+- Remember from Week 1 that the pipe operator (`|>`) allows us to link together multiple functions, passing the result of one function as the input to the next
+- We read it as "then" or "and then"
+- You may see the pipe operator also written as "`%>%`" in older code. `%>%` works exactly the same, but it is recommended that you use the newer and more streamlined version (`|>`)
+
+## Example: The pipe
+Take the hypothetical sequence of functions:
+
+```bash
+x |> 
+  f() |> 
+  g() |> 
+  h()
+```
+We'd read it as:
+
+- Take `x` then
+
+- Use this output as the input to the next function `f()` then
+
+- Use this output as the input to the next function `g()` then
+
+- Use this output as the input to the next function `h()`
+
+Note that we do not include "`|>`" after `h()` on line 4 because there are no subsequent functions. If you were to include "`|>`" on line 4, you would receive an error message and your code would not run
+
+## Dataset example
+- Here's a sample dataset looking at the number of tweets three MPs share each month
+- Is this a messy or tidy dataset and why?
+
+```{r}
+head(mps_twitter)
+```
+
+## Dataset example (continued)
+- This is a messy dataset because each month is its own separate column, meaning our “month” variable is spread across columns
+- This makes it harder to filter number of tweets by month and summarize trends over time 
+- This example illustrates that the structure of our dataset can shape our analysis
+
+## Tidying a dataset
+- To tidy the example dataset we just saw, we can use the `pivot_longer` function from `tidyr` (part of the `tidyverse`) to "tidy" the data frame to a "long" format
+- If you want to “tidy” the data frame to a “wide” format, you can use `pivot_wider()`
+
+## Tidying a dataset (continued)
+To make this a tidy dataset, we could re-shape our dataset so "month" and "number of tweets" become their own columns
+```r{}
+mps_twitter |> 
+ pivot_longer(cols = c(Tweets_Jan, Tweets_Feb, Tweets_Mar),
+              names_to = "Month", 
+              values_to = "Tweets", 
+              names_prefix = "Tweets_")
+```
+Each row is now one observation and each column is one variable
+```{r}
+mps_twitter |> 
+ pivot_longer(cols = c(Tweets_Jan, Tweets_Feb, Tweets_Mar),
+              names_to = "Month", 
+              values_to = "Tweets", 
+              names_prefix = "Tweets_")
+```
+
+## Wide vs long data: why it matters
+- **Wide data:** each variable is stored in separate columns
+
+  - Example: Tweets_Jan, Tweets_Feb, Tweets_Mar
+
+- **Long data:** variables are stored in one column and their values in another
+
+  - Example: month + tweets columns
+  
+- `ggplot2` is designed for long (tidy) data, where each row = one observation and each column = one variable
+
+## select()
+- We use `select()` to pick particular columns of a dataset
+- This function is useful if you want your dataset to only have a subset of variables/columns
+- Let's try using the `select()` function now with data from the `canlang` package which looks at languages spoken across Canada [@canlang]
+
+## Example: select()
+Let's load our R packages:
+```{r}
+#| echo: true
+library(tidyverse)
+library(canlang)
+```
+
+And then load the dataset and select 3 of the 6 columns/variables
+
+```r{}
+can_lang |>
+select(category, language, mother_tongue)
+```
+
+So now our dataset has 3 of the 6 columns/variables
+
+```{r}
+can_lang |>
+select(category, language, mother_tongue)
+```
+
+## Example: select() (continued)
+We can also use `select()` to remove columns, by negating the column name (using the minus sign, `-`)
+
+```r{}
+can_lang |>
+select(-mother_tongue)
+```
+
+So now our dataset has 5 of the 6 columns/variables
+
+```{r}
+can_lang |>
+select(-mother_tongue)
+```
+
+## Example: select() (continued)
+We specify multiple columns to remove using the minus sign, in conjunction with `c()`
+
+```r{}
+can_lang |>
+select(-c(mother_tongue, lang_known))
+```
+
+So now our dataset has 4 of the 6 columns/variables
+
+```{r}
+can_lang |>
+select(-c(mother_tongue, lang_known))
+```
+
+## Example: select() (continued)
+Furthermore, we can use `select()` to only include columns that meet a certain condition, such as all of the columns that start with "most"
+
+```r{}
+can_lang |>
+select(starts_with("most"))
+```
+
+So now our dataset just has the two columns/variables that start with the word "most"
+
+```{r}
+can_lang |>
+select(starts_with("most"))
+```
+
+## filter()
+- We use `filter()` to pick out a subset of rows in a dataset
+- This function is useful because it helps you narrow down the scope of your dataset to include just the observations you care about
+
+## Example: filter()
+
+We can use `filter()` to pick particular rows of a dataset. For example, we might only be interested in analyzing Indigenous languages
+
+```r{}
+can_lang |>
+filter(category == "Aboriginal languages")
+```
+So now our dataset just includes Indigenous languages
+
+```{r}
+can_lang |>
+filter(category == "Aboriginal languages")
+```
+
+## Example: filter() (continued)
+We could also use `filter()` with two conditions. Either `&` or `,` render the same result
+
+```r{}
+can_lang |>
+filter(category == "Aboriginal languages" & language == "Cree, n.o.s.")
+```
+So now our dataset just includes Cree for Indigenous languages
+
+```{r}
+can_lang |>
+filter(category == "Aboriginal languages" & language == "Cree, n.o.s.")
+```
+
+## Example: filter() (continued)
+Moreover, we could combine `filter()` and `select()` by using the pipe operator
+
+```r{}
+can_lang |>
+filter(category == "Official languages") |>
+select(category, language, mother_tongue)
+```
+
+Now, our dataset just includes the official language category, the name of the language, and the number of Canadian residents who reported the language as their mother tongue
+
+```{r}
+can_lang |>
+filter(category == "Official languages") |>
+select(category, language, mother_tongue)
+```
+
+## arrange()
+- We use `arrange()` to change the order of the dataset based on the values of particular columns
+- `arrange()` always returns rows sorted in ascending order by default
+- To change from ascending to descending order, we can use `desc()` with `arrange()`
+
+## Example: arrange()
+For example, we could arrange the mother tongue column by the number of speakers
+
+```r{}
+can_lang |>
+arrange(mother_tongue) 
+```
+So now the smallest number of people who have a certain language as their mother tongue appear first in our dataset
+
+```{r}
+can_lang |>
+arrange(mother_tongue) 
+```
+
+## Example: arrange() (continued)
+And we can add `desc()` with `arrange()`
+```r{}
+can_lang |>
+arrange(desc(mother_tongue))
+```
+Now, the largest number of people who have a certain language as their mother tongue appear first in our dataset
+```{r}
+can_lang |>
+arrange(desc(mother_tongue))
+```
+
+## mutate()
+- Another common transformation of data is to create new variables based on existing ones 
+- We can use the `mutate()` function to help us when we want to make a new column in our dataset
+- By default, the new column will be added at the *end* of our dataset
+- If we want the new column to appear at a particular place in our dataset, we can specify `.before` or `.after` a specific column
+
+## Example: mutate()
+Let's say that we want to find out the number of people who use the language at home (most_at_home) and add the number who use it at work (most_at_work). We can do this by creating a new column (total_use):
+
+```r{}
+can_lang |>
+mutate(total_use = most_at_home + most_at_work) 
+```
+
+Instead of looking at two separate variables, we now have one summary variable 
+
+```{r}
+can_lang |>
+mutate(total_use = most_at_home + most_at_work) |>
+  select(-lang_known)
+```
+
+## Example: mutate() (continued)
+- Let's say we want our new "total_use" column to appear before our columns that start with "most". We can achieve that by using "`.before`"
+
+```r{}
+can_lang |>
+mutate(total_use = most_at_home + most_at_work, .before = "most_at_home") 
+```
+
+Our column now appears at a specific point in our dataset
+
+```{r}
+can_lang |>
+mutate(total_use = most_at_home + most_at_work, .before = "most_at_home") |>
+  select(-lang_known)
+```
+
+## summarize()
+- We use `summarize()` to calculate descriptive statistics  
+- We often use the `group_by()` function in conjunction with `summarize()`
+- `summarise()` and `summarize()` are equivalent and we can use either
+- We'll talk more about descriptive statistics in Week 6
+
+## Example: summarize()
+We want to find the total number of speakers by broad language category. We can achieve this through combining `group_by` and `summarize`
+```r{}
+can_lang |>
+group_by(category) |>
+summarize(total_speakers = sum(mother_tongue))
+```
+This groups the data by category and then calculates the total number of speakers within each group
+```{r}
+can_lang |>
+group_by(category) |>
+summarize(total_speakers = sum(mother_tongue))
+```
+
+## rename()
+- We use `rename()` to change the name of variables/columns in our dataset 
+- We use a single equals sign ("=") within the `rename()` because we want to assign a new variable that has the same values as the old variable and then delete the original variable
+
+## rename() (continued)
+- The new variable name appears on the left hand side of the equals sign (=), while our old variable name appears on the right
+
+```r{}
+can_lang |>
+rename(language_known = lang_known)
+```
+Now our `lang_known` column is called `language_known`
+
+```{r}
+can_lang |>
+rename(language_known = lang_known) |>
+  select(-c(most_at_home, most_at_work))
+```
+
+
+## Data types and structure matter
+- **Numeric (quantitative)**  
+  - Represent measurable quantities  
+  - Can be *continuous* (e.g., life expectancy) or *discrete* (e.g., number of tweets)
+
+- **Character (text)**  
+  - Labels or strings (e.g., country names, language names)  
+  - Usually not used directly in calculations
+
+## Data types and structure matter (continued)
+- **Factor (categorical)**  
+  - Variables that represent groups or categories  
+  - Can be *unordered* (e.g., gender) or *ordered* (e.g., low / medium / high)
+
+```r{}
+str(can_lang)
+```
+
+- We can check variable types using `str()`:
+
+```{r}
+str(can_lang)
+```
+
+## Data types and structure matter (continued)
+
+```r{}
+class(can_lang$mother_tongue)
+```
+
+- Or we can look at a specific variable in a dataset using `class()`, specifically `class(dataset_name$variable_of_interest)`
+
+```{r}
+class(can_lang$mother_tongue)
+```
+
+- The type of variable affects how R treats it in:
+  - summaries (`summarize()`)
+  - grouping (`group_by()`)
+  - plots (`ggplot()`)
+  
+## Why visualize our data?
+- Why should we visualize our data?
+
+## Data visualization
+- The purpose of a visualization is to answer a question about a dataset of interest [@timbers2022]
+- Visualization is an important way understand our data and to communicate this to the reader
+- Plotting the observations in a dataset can help us identify outliers, distributions of individual variables, relationships between groups of variables, and missing data 
+- An important objective of a graph is to convey as much of the actual data and its context as possible
+
+## How to think about data visualization
+- The first thing to do before creating a visualization is to think about the question you are trying to answer
+- A good visualization will clearly answer your question without distraction
+- But a great visualization will suggest even what the question was itself without additional explanation
+- Visualizations are not neutral though and our choices can impact the communication of and understanding of findings
+
+## A very brief history of data visualization
+-  @vanderplas2020 highlight that visual abstractions of data goes as far back as sixth-century-BCE Babylon, however the creation of graphs and charts have been linked to the more recent development of coordinate systems
+- Data analysis and graphs started becoming more common and appearing in government-issued reports in eighteenth and nineteenth centuries
+- Early experimentation regarding the accuracy of graphical forms often came from psychophysics research - the aim focuses on the initial perception and graph comprehension
+
+## Introducing ggplot2
+
+- `ggplot2` is part of the tidyverse and follows a “grammar of graphics”  
+-  Similar to linguistic grammar, “the grammar of graphics” defines a set of rules for constructing statistical graphics by combining different types of layers [@moderndive]
+- There are a variety of graph types we'll work with, including bar charts, scatterplots, line plots, and histograms
+
+## Essential compontents of graphics
+According to @moderndive, essential components of graphics include:
+
+- `data`: the dataset containing the variables of interest
+
+- `geom`: the geometric object in question. This refers to the type of object we can observe in a plot. For example: points, lines, and bars
+
+- `aes`: aesthetic attributes of the geometric object and are mapped to variables in the dataset. For example, x/y position, colour, shape, and size
+
+## Common types of plots
+- Common types of plots include: 
+
+  - Bar charts
+  - Scatterplots
+  - Line plots
+  - Histograms
+  - Boxplots
+
+## A word on pie charts
+- While pie charts are often commonly used, they poorly represent data
+- Humans are poor at comparing angles and areas, so pie charts make it difficult to accurately judge differences between categories
+- They quickly become cluttered and hard to read when there are many categories
+
+## Bar charts
+- We typically use a bar chart when we have a categorical variable that we want to visualize
+- They are effective for visualizing comparisons of amounts
+- The geometric object called a “geom” that we primarily use is `geom_bar()` but we can also use `geom_col()`
+- Hint: `geom_bar()` counts data automatically, while `geom_col()` uses pre-summarized values
+
+## Example: Bar charts
+- For example, we may want to visualize the number of interruptions by year in the Australian Parliamentary debates [@katz2026]
+
+![](n_interject_per_yr.jpeg){fig-align="center"}
+
+## Interpreting bar charts
+
+- **x-axis**: year
+- **y-axis**: number of interruptions 
+- Each bar represents the total number of interjections recorded in a given year (regardless of MP gender or political party affiliation)
+
+![](n_interject_per_yr.jpeg){fig-align="center"}
+
+## Building bar charts
+
+```{r}
+#| echo: false
+library(here) 
+interjections_by_year <- read_csv(here("slides/interjections_by_year.csv"))
+```
+
+In this example, our dataset, called "`interjections_by_year`" has already been read in using `read_csv`
+
+```r{}
+interjections_by_year |> # use our interjections dataset
+  ggplot(aes(x = year, y = n)) + #  x-axis = year, y-axis = number of interjections
+  geom_col() + # specify column/graph type
+  theme_minimal() + # simple theme without gridlines/background
+  labs( # specify labels
+    x = "Year", # label for x-axis
+    y = "Number of interjections", # label for y-axis
+    title = "Interjections in the Australian House of Representatives from 1998-2025") 
+    # graph title
+```
+
+## Building bar charts (continued)
+
+```{r}
+interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col() +
+  theme_minimal() +
+  labs( 
+    x = "Year",
+    y = "Number of interjections",
+    title = "Interjections in the Australian House of Representatives from 1998-2025")
+```
+
+## Building bar charts (continued)
+- We can also update the number of ticks on our x and/or y-axes using `scale_x_continuous()` or `scale_y_continuous()`
+
+```r{}
+interjections_by_year |> 
+  ggplot(aes(x = year, y = n)) + 
+  geom_col() + 
+  theme_minimal() +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 16)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
+  labs( 
+    x = "Year", 
+    y = "Number of interjections", 
+    title = "Interjections in the Australian House of Representatives from 1998-2025") 
+```
+
+## Building bar charts (continued)
+
+```{r}
+interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col() +
+  theme_minimal() +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 16)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 6)) +
+  labs( 
+    x = "Year",
+    y = "Number of interjections",
+    title = "Interjections in the Australian House of Representatives from 1998-2025")
+```
+
+## Building bar charts (continued)
+- We may also like to consider various groupings of the data to generate different insights. For example, we can use colour to look at interruptions by MP gender
+- In the code we just saw, we would add `fill`, so the line would be: `ggplot(aes(x = year, y = n, fill = gender))` 
+
+![](n_interject_per_yr_gender.jpeg){fig-align="center"}
+
+## Scatterplots
+- Scatterplots can be used to show the relationship between two numeric or continuous variables
+- They are effective for visualizing the relationship between two quantitative variables
+- We use `geom_point()` to create scatterplots
+
+```{r}
+#| echo: false
+library(gapminder)
+```
+
+## Example: scatterplots 
+
+We can use data from the `gapminder` package [@bryan2025] to look at GDP per capita versus life expectancy
+
+```r{}
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "GDP per Capita (US Dollars)", y = "Life Expectancy (Years)",
+      caption = "Data source: Gapminder")
+```
+
+This graph shows the relationship between wealth and health globally 
+```{r}
+#| fig-align: center
+
+ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "GDP per Capita (US Dollars)", y = "Life Expectancy (Years)", 
+       caption = "Data source: Gapminder")
+```
+
+## Line plots
+-  Line plots show the relationship between two numerical variables
+- They are effective for visualizing trends with an independent, ordered quantity
+
+  - Commonly used to show some sense of time on the x-axis: hours, days, weeks, years, etc. 
+
+- Since time is sequential, we can connect consecutive observations of the variable on the y-axis with a line 
+- We use `geom_line()` to create line plots
+
+## Example: line plots 
+
+We can look at Canadian life expectancy between 1952 and 2007  
+
+```r{}
+gapminder |>
+  filter(country == "Canada") |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line() +
+  labs(x = "Year", y = "Life Expectancy (Years)", caption = "Data source: Gapminder")
+```
+This graph shows how life expectancy changes over time in Canada
+
+```{r}
+#| fig-align: center
+
+gapminder |>
+  filter(country == "Canada") |>
+  ggplot(aes(x = year, y = lifeExp)) +
+  geom_line() +
+  labs(x = "Year", y = "Life Expectancy (Years)", caption = "Data source: Gapminder")
+```
+
+## Histograms
+- Histograms are useful to show the shape of the distribution of a continuous variable
+- The full range of the data values is split into intervals called “bins” and the histogram counts how many observations fall into each bin
+- We use `geom_histogram()` to create histograms
+
+## Example: histograms
+
+Histograms can be useful to see how life expectancy is distributed globally
+
+```r{}
+ggplot(gapminder, aes(x = lifeExp)) +
+  geom_histogram(binwidth = 5) +
+  labs(x = "Life Expectancy (Years)", y = "Number of Observations (Country-Year Cases)", 
+      caption = "Data source: Gapminder")
+```
+Our graph suggests that many countries have experienced health improvements over time
+
+```{r}
+#| fig-align: center
+
+ggplot(gapminder, aes(x = lifeExp)) +
+  geom_histogram(binwidth = 5) +
+  labs(x = "Life Expectancy (Years)", y = "Number of Observations (Country-Year Cases)", 
+      caption = "Data source: Gapminder")
+```
+
+## Boxplots
+- Boxplots are constructed from the information provided in the five-number summary of a numerical variable
+- They typically show five aspects: 1) the median, 2) the 25th, and 3) 75th percentiles. The fourth and fifth elements differ depending on specifics
+- We use `geom_boxplot()` to create boxplots
+
+## Example: boxplots
+
+Boxplots can compare how life expectancy differs across continents in a single summary graph
+
+```r{}
+ggplot(gapminder, aes(x = continent, y = lifeExp)) +
+  geom_boxplot() +
+  labs(x = "Continent", y = "Life Expectancy (Years)", caption = "Data source: Gapminder")
+```
+
+Our graph suggests that there are differences in typical life expectancy across continents
+
+```{r}
+#| fig-align: center
+
+ggplot(gapminder, aes(x = continent, y = lifeExp)) +
+  geom_boxplot() +
+  labs(x = "Continent", y = "Life Expectancy (Years)", caption = "Data source: Gapminder")
+```
+
+## Themes
+- Themes help us define the visual identity of our graph and clearly communicate our findings to our readers
+- There are various themes that are built into `ggplot2`, including: `theme_bw()`, `theme_classic()`, `theme_dark()`, and `theme_minimal()`
+- The `ggplot2` [cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf) has a full list of themes
+- We can use themes by adding them as a layer
+
+## Themes (continued)
+
+![](n_interject_themes.png){fig-align="center"}
+
+## Facets
+- When we want to show variation among many variables, we can use facets 
+- Faceting will create multiple copies of the same type of plot with matching x and y axes, but whose content will differ
+- We use the `facet_wrap()` function to achieve this
+
+## Facets (continued)
+
+- Here's an example of a graph that uses facets to show who is asking the question during debates and the main policy issue the question discusses [@mckay2026]
+
+![](ld_facet.jpg){fig-align="center"}
+
+## Facets (continued)
+- Facets are used in this graph to show the type of account and verified variables, while the fill is the politician [@inessa]
+- The x-axis is whether a reply contains harassment (binary; yes/no) and the y-axis is the estimated probability that a reply contains harassment (between 0 and 1)
+
+![](tt_facet.jpeg){fig-align="center"}
+
+
+## Bringing together multiple graphs
+- Depending on your dataset, facet wrapping may not be the best way to communicate your results
+- Instead, you may want to make multiple separate graphs and then bring them together
+- We can do this using the `patchwork` package [@patchwork]
+
+## Patchwork example
+```r{}
+## Make B&W theme graph ##
+theme_bw <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_bw() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_bw()")
+
+## Make classic theme graph ##
+theme_classic <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_classic() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_classic()")
+
+## Make dark theme graph ##
+theme_dark <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_dark() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_dark()")
+
+## Make minimal theme graph ##
+theme_minimal <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_minimal() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_minimal()")
+
+## Bring all graphs together into one ##
+theme_minimal + theme_classic + theme_bw + theme_dark
+```
+
+## Patchwork example (continued)
+```{r}
+library(patchwork)
+theme_bw <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_bw() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_bw()")
+
+theme_classic <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_classic() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_classic()")
+
+theme_dark <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_dark() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_dark()")
+
+theme_minimal <- interjections_by_year |>
+  ggplot(aes(x = year, y = n)) +
+  geom_col(fill = "#B0AFFF") +
+  theme_minimal() +
+  labs(x = "Year", y = "Number of interjections", caption = "theme_minimal()")
+
+theme_minimal + theme_classic + theme_bw + theme_dark
+```
+
+## Colours
+- Colours are another way to help communicate your findings, but they should not be added unnecessarily
+- Colour should increase the amount of information that is communicated or help to distinguish different groups and their relationship
+
+## Colours (continued)
+- We can see here that using the political party colours can help readers more easily distinguish how many MPs from each party have Bluesky accounts
+
+![](mps_colour.jpeg){fig-align="center"}
+
+## Colours (continued)
+
+- There are many different ways to change the colours
+- Many palettes are available from `RColorBrewer` [@neuwirth2022] can be specified using `scale_fill_brewer()`
+- We can also set our own colours, by specifying colour names or hex codes using `scale_color_manual()`, for example:
+
+```bash
+scale_color_manual(values=c("#66CC99", "#B0AFFF"))
+```
+
+- The `fill` aesthetic corresponds to the colour used to fill the bars, while the `color` aesthetic corresponds to the colour of the outline of the bars
+
+## Colours (continued)
+
+- When using colours, we need to be conscious of contrast and accessibility
+
+- `viridis` is particularly focused on colour-blind palettes and we can specify the palettes using `scale_fill_viridis_d()`
+
+![*Source: Vanderplas et al., 2020*](colour_scale.jpg){fig-align="center"}
+
+## Colours (continued)
+- Are the colours in this graph accessible and do they clearly communicate our results?
+
+![](n_interject_bad.png){fig-align="center"}
+
+## Colours (continued)
+- Are there other aspects of the graph (such as labels and titles) that could be clarified?
+
+![](n_interject_bad.png){fig-align="center"}
+
+## Visualizations are not neutral
+- Choices about scales, colours, and categories shape how we interpret data
+- What we include, exclude, or aggregate changes the story a graph can tell
+- Visualizations can clarify patterns, but they can also mislead depending on design choices
+- Visualizing data involves editorial choices: some are highlighted and others are obscured. These choices have framing effects, which means that they have an impact on people interpret graphics and the information they take away [@datafeminism]
+
+## Visualizations are not neutral (continued)
+- @datafeminism argue that all forms of data and knowledge, including data visualizations are situated
+- This means they are produced by specific people in specific contexts (cultural, historical, political, and geographic)
+- As a result, data visualizations reflect particular perspectives rather than a universal or "objective" view of reality
+
+## Your turn
+
+-   Go to the class GitHub repository, <https://github.com/inessadeangelis/INF2167> and to the "Week 3" folder
+-   Download the lab questions called `week3_lab.qmd` that are in that folder
+
+## Submission
+
+-   Please upload your .qmd file and PDF to Quercus under "Assignments" -\> "In-class Lab 3"
+
+## For next week
+
+-   *Telling Stories*, Chapters 6 & 10
+-   *Modern Dive*, Chapter 7
+-   D’Ignazio, C., & Klein, L. (2020). 6. “The Numbers Don’t Speak for Themselves.” In *Data Feminism*. <https://data-feminism.mitpress.mit.edu/pub/czq9dfs5/release/3>
+
+**And then please read at least 1 of the following:**
+
+- Karstens et al. (2023) 
+
+- Katz & Alexander (2023)
+
+- Stephenson et al. (2021)
+
+## References

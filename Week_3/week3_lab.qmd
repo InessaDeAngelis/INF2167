@@ -1,0 +1,150 @@
+---
+title: "Week 3 Lab: Data wrangling and visualization"
+subtitle: "INF2167 - R for Data Science"
+author: "Inessa De Angelis"
+date: "05/21/2026"
+date-format: long
+format: pdf
+execute: 
+  warning: false
+---
+
+In this lab, you'll be working with a dataset of your choice from `OpenDataToronto`. You’ll practice using `tidyverse` functions like `filter()`, `arrange()`, and `mutate()` to explore and analyze the data. You'll also be working with `ggplot2` functions to visualize some aspects of your chosen dataset. The goal is to get comfortable transforming and visualizing real-world data.
+
+Before you begin, update the author name in the document front matter to your first and last name. Then, complete the lab by writing your code and answers directly below each question. Submit your .qmd file and PDF on Quercus. Note: You may work together in small groups of 2 or 3 to complete the first portion of the lab, then with your partner for the group portion. Each member of the group should submit their own .qmd file and PDF on Quercus.
+
+# Getting started
+
+## Workspace setup
+First, load the required packages: `tidyverse` and `opendatatoronto`. If you have not installed the `opendatatoronto` package yet, remember you can do it by running `install.packages("opendatatoronto")` in your console. 
+
+```{r}
+library(tidyverse)
+library(opendatatoronto)
+```
+
+## Choosing a dataset
+
+Choose a dataset from [Open Data Toronto catalogue](https://open.toronto.ca/catalogue/) that is of interest to you and download it. You may modify the following code by changing the "package resource" and "ID" to the correct ones for your chosen dataset.  
+
+```{r}
+data <- list_package_resources("9426c94d-abdb-45fe-9a81-79be40d204d2") |>
+  filter(str_detect(id, "4f8317bd-566b-4e15-b3b7-59a4a398a856")) |>
+  get_resource()
+```
+
+**Briefly describe your chosen dataset in a 1-3 sentences:** 
+**- What dataset did you choose and why?**
+**- What is the dataset about?**
+
+# Exploring your dataset
+
+## Inspect your dataset
+We can use the `head()` function to look at the first six rows of our dataset. 
+
+```{r}
+head()
+```
+
+And we can use `glimpse()` to inspect the number of observations and variables.
+```{r}
+glimpse()
+```
+
+**- What unit of observation does each row represent?**
+**- How many rows and columns does it have?**
+**- What types of variables are included (for example, numeric, character, etc.)?**
+
+## Exploring the your dataset
+
+-**Select 3–5 variables you think are interesting. Explain why you chose them in 3-5 sentences.**
+
+-**Use `arrange()` to sort your data by one variable (ascending) and then sort it in descending order.**
+
+```{r}
+arrange() 
+```
+
+```{r}
+arrange(desc())
+```
+
+**- Change one of the names of your columns using `rename()`.**
+
+```{r}
+rename()
+```
+
+**- Use `filter()` to create a subset of your main dataset.** 
+
+```{r}
+filter()
+```
+
+**- Explain your filtering condition. How many rows remain after filtering?**
+
+Create a new variable using `mutate()`. This could be a ratio, category, or transformation
+
+```{r}
+mutate()
+```
+
+**- Explain what your new variable represents.**
+
+Use `group_by()` and `summarize()` to compute a summary statistic, such as mean, median, count, total.
+
+```{r}
+group_by()
+summarize()
+```
+
+**- What summary statistic did you compute. And what does your result tell you?**
+
+**- Identify one interesting pattern or finding from your summary.**
+
+# Data visualization
+Now, we'll work on visualizing our dataset using `ggplot2`.
+
+Create a bar chart using variables of interest. Please include clear x-axis and y-axis labels and a short, but descriptive title.
+
+```{r}
+ggplot()
+```
+
+**- How could you revise your plot to improve at least one of the following aspects: colours, axis labels, title/caption?**
+
+**- How would this change make your plot easier to interpret?**
+
+# Wrap up reflection
+**Before moving to the group project portion, please reflect on today's lab and answer honestly in 1-2 sentences per question.**
+
+**- What is one thing you feel more confident doing in R now after this lab?**
+**- What is something you would like me explain in more detail or re-visit in a future lecture and/or lab?**
+
+# Group project discussion
+
+With your project partner, revisit the research question(s) you developed last week. Please write 2-3 sentences in response to each question.
+
+## Project idea
+
+**- Has your research question changed or become more specific after learning about data wrangling and visualization?**
+
+**- What variables would your need dataset need to have to answer your question(s)?**
+
+## Thinking about your dataset
+
+**- Which dataset(s) might help answer your research question(s)?**
+
+**- Is your data likely already in a "tidy" format or would it need cleaning?**
+
+**- What challenges do you anticipate when working with your data?**
+
+## Visualizing your project
+
+Think about how you might visualize your data.
+
+**- What type of graph or visualization might help communicate your findings?**
+
+**- What variables would appear on the x-axis, y-axis, or as colours/groups?**
+
+**- What could make your visualization misleading or difficult to interpret?**
