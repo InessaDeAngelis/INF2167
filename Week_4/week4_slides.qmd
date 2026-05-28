@@ -1,0 +1,499 @@
+---
+title: "Data sources, collection and sampling"
+subtitle: "INF2167, Week 4"
+date: "May 28, 2026"
+date-format: long
+author: 
+  name: "Inessa De Angelis"
+format:
+  revealjs:
+    pdf-separate-fragments: true
+    theme: [default, custom.scss]
+    highlight-style: github
+    slide-number: true
+bibliography: ref.bib
+csl: apa.csl
+---
+
+## Announcements
+- Reminder: In-class test 1 is next week (June 4th)
+- You will have the whole class to write the test
+- Please bring a pencil or pen (preferably a pencil) to write the test
+
+## Final project proposal
+- The rubric is now available on Quercus, on the "project proposal" assignment page
+- We'll walk through how to set up a project, referencing the workflow and file organization structure from Week 2
+
+## Objectives
+- Understand key principles of sampling and how they can affect inference
+- Identify different types of data sources used in social science research (e.g., surveys, administrative data, digital trace data) and assess their strengths and limitations
+- Import and work with some of these types of data using reproducible workflows in R
+- Evaluate how data collection processes shape what data exists, what is missing, how datasets are constructed, and which types of research questions can be answered
+
+## Last week
+- Last week, we talked about data wrangling and visualization, including core `tidyverse` functions such as `select()`, `filter()`, `mutate()`, and `arrange()`
+- This week, we'll build on these concepts of dataset wrangling by talking about dataset construction, including sampling and measurement error
+
+## Big picture idea for today
+- Data does not "exist" in the world in tidy datasets
+- It is created through decisions about:
+
+  - what gets measured
+  
+  - who gets included
+
+  - how things are recorded and collected
+
+- These decisions shape:
+
+  - what we can know
+
+  - what remains invisible
+
+  - what questions we can ask
+
+## Sampling
+
+Key terminology
+
+- **Population:** A collection of all individuals or observations of interest
+
+- **Sample:**  A subset of the population
+
+- **Sampling:** The act of collecting samples from the population
+
+- **Sampling frame:** A list of all the items from the target population that we could get data about
+
+## Probabilistic sampling
+
+- **Probability sampling:** Every unit in the sampling frame has some known chance of being sampled and the specific sample is obtained randomly based on these chances. The chance of being sampled does not necessarily need to be same for each unit
+
+- **Non-probability sampling:** Units from the sampling frame are sampled based on convenience, quotas, judgement, or other non-random processes
+
+## Four types of probability sampling
+
+- Simple random
+
+  - Every unit has an equal chance of selection
+
+- Systematic
+
+  - Choose units at regular intervals from a list (after a random start)
+
+- Stratified
+
+  - Divide population into groups, sample randomly within each group
+
+- Cluster
+
+  - Divide a large population into distinct groups (clusters) and then randomly select a subset of these clusters to study
+
+## Non-probability samples
+- A lot of modern sampling is done using non-probability sampling
+- Convenience sampling involves gathering data from a sample that is easy to access
+- The main concern with convenience sampling is whether it is able to speak to the broader population
+- Quota sampling occurs when we have strata, but we do not use random sampling within those strata to select the unit
+
+## Sampling frames
+- A sampling frame is rarely complete
+- Example: Population: all eligible voters in Canada
+- Sampling frame: registered voters list or phone/email lists
+- Missing: people who are unregistered, hard-to-reach populations
+- If your sampling frame is biased, your sample will inherit that bias even if sampling is random
+
+## Why sampling matters for inference
+
+- Inference depends on how data were generated
+
+- If sampling is biased:
+
+  - estimates may be systematically wrong
+
+  - uncertainty estimates may be misleading
+
+  - results may not generalize
+
+## Example: Sampling
+
+We can simulate sampling directly in R. This lets us compare a *population* to a *sample estimate*.
+
+Here, we'll load and use the `penguins` dataset in the `palmerpenguins` package:
+
+```{r}
+#| echo = FALSE
+library(tidyverse)
+library(palmerpenguins) 
+```
+
+```r{}
+library(tidyverse)
+library(palmerpenguins) # you will need to install this first
+```
+
+## Example: Sampling (continued)
+Let's take a random sample using the `slice_sample()` function:
+
+```r{}
+set.seed(16)
+
+penguin_sample <- penguins |>
+  slice_sample(n = 40)
+```
+
+```{r}
+set.seed(16)
+
+penguin_sample <- penguins |>
+  slice_sample(n = 40)
+```
+
+## Example: Sampling (continued)
+
+Now, calculate the mean body mass in the full dataset and in this sample:
+
+```r{}
+## Full dataset ##
+mean(penguins$body_mass_g, na.rm = TRUE)
+
+## Sample ##
+mean(penguin_sample$body_mass_g, na.rm = TRUE)
+```
+What do our results suggest about sampling?
+```{r}
+## Full dataset ##
+mean(penguins$body_mass_g, na.rm = TRUE)
+
+## Sample ##
+mean(penguin_sample$body_mass_g, na.rm = TRUE)
+```
+
+## Measurement error
+- Measurement error is the difference between the observed value and actual value
+- It can arise from:
+
+  - question wording
+  
+  - respondent misunderstanding
+  
+  - instrument design
+  
+  - data processing
+  
+## Types of measurement error
+- Random error: noise that averages out
+- Systematic error: bias that pushes results in a consistent direction
+- Examples:
+
+  - Typos -> random
+
+  - Leading question wording -> systematic
+
+  - Social desirability bias -> systematic
+  
+## Measurement error: measuring sex and gender
+- A classic issue in survey research is that the decisions we make about categories are not neutral
+- For example: "sex" and "gender" are often treated as interchangeable in datasets even though they measure different concepts
+- Survey instruments frequently collapse complex identities into simplified categories [@bittner2017]
+- This matters because respondents may not see themselves reflected in the available options
+- Survey categories shape who is visible in the data and can affect measurement validity
+
+## Categories are not neutral
+- Categories often appear objective or natural, but they are socially and/or politically constructed
+- Categories often:
+
+  - reflect institutional priorities
+
+  - simplify complex realities
+
+  - can exclude or erase certain groups [@baisley2026]
+  
+## Example: categories
+Let's take a look at this graph about homicides in Toronto, made with data from Open Data Toronto. What do you notice?
+
+![](toronto_crime.jpeg){fig-align="center"}
+
+
+## Categories (continued)
+
+- Data systems can reflect existing structures of power [@datafeminism]
+- Datasets are never simply technical objects
+- Classification is itself a social and political process
+- This is why it is important, regardless of the type of data we are working with, to understand where data comes from and how it was constructed
+
+## Types of data sources we often use in social science research
+- Survey data (Canadian Election Study, General Social Survey)
+- Experimental (lab and field experiments)
+- Administrative records and official statistics (census data, government registers)
+- Text-as-data (news articles, parliamentary debates, policy documents)
+- Social media data (Bluesky, Twitter/X, YouTube)
+- Digital trace data (browser cookies, search history)
+
+In today's lecture, we're going to focus on survey data, administrative records, and text-as-data and leave social media data for Week 6 (June 11)
+
+## Dataset construction and documentation 
+- One challenge in the social sciences and data science is that datasets are often treated as neutral objects [@datafeminism]
+- Why is this a problem? 
+
+## Dataset construction and documentation 
+- However, datasets are produced through:
+  
+  - institutional processes
+
+  - measurement choices
+
+  - inclusion/exclusion decisions
+
+  - cleaning and coding decisions
+  
+## Documenting datasets
+- Documenting our dataset construction and cleaning choices can help overcome the issue of datasets being viewed as neutral objects
+- One way to do this is through creating a data dictionary
+- Data dictionaries are centralized reference documents that focus on metadata, technical aspects, and describe the elements, formats, and relationships within a dataset
+
+## Datasheets for datasets
+- One way to restore context to the data collection, cleaning, and anlysis process is through *datasheets for datasets* [@gebru2021]
+- They are short 3 to 5 page documents that accompany datasets
+- Datasheets discuss how the dataset was created, what data might be missing, whether pre-processing was done, and how the dataset will be maintained [@datafeminism]
+- Legal and ethical considerations are also discussed, including whether the data collection process complies with privacy laws in the European Union
+
+## Comparing types of documentation
+- A "data dictionary as a list of ingredients for a dataset ... [and] a datasheet as basically a nutrition label for datasets" [@alexander2023]
+- Codebooks are similar to, be differ from data dictionaries because they focus on operationalizing concepts and allow other researchers to interpret them in context
+- Codebooks are frequently used in survey research and also content analysis (qualitative + quantitative)
+- In essence, good data analysis requires understanding the context where data came from
+
+## Survey data
+- Examples: Canadian Election Study (CES), General Social Survey (GSS)
+- Structured questionnaires
+- Designed sampling frames
+- Standardized questions across respondents
+
+## Strengths of survey data
+- Designed for inference
+- Can measure attitudes, preferences, behaviours
+- Usually has good documentation in the form of a codebook, including collection and sampling processes and variable description
+- Typically does not need to much cleaning and wrangling before it is in a usable structure for analysis
+
+## Limitations of survey data
+- Non-response bias [particularly an issue with modern political polling, @poisson2024]
+- Question wording effects, can lead to measurement error [especially for questions related to polarization and media use, @prior2007]
+- Sampling limitations
+
+## Working with survey data in R
+- Surveys will sometimes have R packages to help you more easily access the data [for example `cesR`, @cesR]
+- Survey data will often be in a different file format than we want it in - such as for Stata (.dta) or SPSS (.sav)
+- This is not a problem, we can read it in with the help of the "`haven`" package in R [@haven] and handle values with labels using `labelled` [@labelled]
+
+  - Hint: [Appendix A (R Essentials)](https://tellingstorieswithdata.com/20-r_essentials.html) in *Telling Stories with Data* goes over how to use `haven` and `labelled` in more detail
+
+## Example: Working with CES data
+Let's say we are interested in finding out citizens' views about voting in the 2019 Canadian federal election, by gender. We can use data from the CES to explore this question [@stephenson2021]
+
+First, let's load our packages:
+
+```r{}
+library(tidyverse)
+library(cesR)
+library(labelled)
+```
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(cesR)
+library(labelled)
+
+raw_ces_data <- read_csv("raw_ces_data.csv", show_col_types = FALSE)
+```
+
+## Example: Working with CES data (continued)
+
+- We can use the [codebook](https://dimension.usherbrooke.ca/documents/CES2019Codebook.pdf) to identify our variables of interest and then the `cesR` package to download them.
+
+- We can called up the each dataset using the `get_ces` function and then specify the dataset by name we want within the bracket. Here, we are getting the "web" version of the 2019 CES: 
+
+```r{}
+get_ces("ces2019_web")
+```
+
+## Example: Working with CES data (continued)
+- Now we can select our variables of interest. 
+
+- `ResponseId` is the unique identifier for each respondent, `gender` is their gender, and `duty_choice` is the question about whether citizens feel that it is their duty to vote during elections
+
+```r{}
+ raw_ces2019_web <- ces2019_web |>
+    select(cps19_ResponseId,
+          cps19_gender,
+          cps19_duty_choice)
+```
+
+## Example: Working with CES data (continued)
+
+- Survey datasets often store categorical variables as labelled values rather than regular R factors
+
+- The `to_factor()` function from the `labelled` package converts labelled variables into factors with readable category labels
+
+```r{}
+raw_ces2019_web <- to_factor(raw_ces2019_web)
+```
+
+## Example: Working with CES data (continued)
+
+- Now we want to save our "raw" dataset before we do any further cleaning or analysis
+
+- This is important, in case the original dataset is removed from the internet or other issues arise 
+
+- We can save the dataset using the `write_csv()` function from the `tidyverse`
+
+```r{}
+write_csv(x = raw_ces2019_web, file = "raw_ces_data.csv")
+```
+
+## Example: Working with CES data (continued)
+Let's inspect our "raw" dataset before cleaning and analysis using `head()`
+
+```r{}
+head(raw_ces2019_web)
+```
+We can now see the first 6 rows of our dataset. What do you notice?
+
+```{r}
+head(raw_ces_data)
+```
+
+## Example: Working with CES data (continued)
+- Now we want to clean our dataset and re-code our "gender" variable. We can do that by using the `case_when()` function in conjunction with `mutate()`
+
+```r{}
+cleaned_ces_data <- raw_ces_data |>
+  rename(ID = cps19_ResponseId,
+         Gender = cps19_gender,
+         Voting_duty_choice = cps19_duty_choice) |>
+  mutate(
+    Gender = case_when(
+      Gender == "A man" ~ "Man",
+      Gender == "A woman" ~ "Woman",
+      Gender == "Other (e.g. Trans, non-binary, two-spirit, gender-queer)" ~ "Other",
+      TRUE ~ Gender)) |>
+  select(ID, Gender, Voting_duty_choice)
+```
+
+```{r}
+cleaned_ces_data <- raw_ces_data |>
+  rename(ID = cps19_ResponseId,
+         Gender = cps19_gender,
+         Voting_duty_choice = cps19_duty_choice) |>
+  mutate(
+    Gender = case_when(
+      Gender == "A man" ~ "Man",
+      Gender == "A woman" ~ "Woman",
+      Gender == "Other (e.g. Trans, non-binary, two-spirit, gender-queer)" ~ "Other",
+      TRUE ~ Gender)) |>
+  select(ID, Gender, Voting_duty_choice)
+```
+
+## Example: Working with CES data (continued)
+- Now, let's save our cleaned dataset once again using `write_csv()`:
+
+```r{}
+write_csv(x = cleaned_ces_data, file = "cleaned_ces_data.csv")
+```
+
+## Example: Working with CES data (continued)
+- To answer our research question about duty to vote and gender, let's generate some descriptive statistics:
+
+```r{}
+cleaned_ces_data |>
+  group_by(Gender, Voting_duty_choice) |>
+  count() |>
+  ungroup() |>
+  group_by(Gender) |>
+  mutate(percentage = round(n / sum(n) * 100, 2)) |>
+  arrange(desc(n))
+```
+
+## Example: Working with CES data (continued)
+- Our results suggest that men are slightly more likely than women to view voting as a *duty* rather than a *choice*
+
+```{r}
+cleaned_ces_data |>
+  group_by(Gender, Voting_duty_choice) |>
+  count() |>
+  ungroup() |>
+  group_by(Gender) |>
+  mutate(percentage = round(n / sum(n) * 100, 2)) |>
+  arrange(desc(n))
+```
+
+## Administrative Records and Official Statistics
+- Generated as part of routine administrative processes
+- Examples: census data, government registries, tax records, hospital records
+
+## Strengths of administrative records and official statistics
+- Large-scale (often population-level)
+- Continuous collection over time
+- High external validity
+- Not subject to survey non-response
+
+## Weaknesses of administrative records and official statistics
+- Not designed for research
+- Limited variables (what gets collected is what exists)
+- Hard to access
+- Measurement depends on administrative systems
+- "Absence" can be meaningful 
+
+## Text-as-data
+- Generated by converting natural language into structured data
+- Examples: speeches, policy documents, news articles, social media comments, parliamentary debates (Hansard)
+
+## What does "turning text into data" mean?
+- Text-as-data transforms language into data by reducing meaning into measurable features
+
+- Common approaches:
+  
+  - Counting word frequencies
+
+  - Dictionary methods (e.g., “economy” vs “health”)
+
+  - Topic models
+
+  - Sentiment analysis
+  
+  - Content analysis
+
+## Strengths of text-as-data
+- Extremely flexible
+- Scales easily (big datasets)
+- Captures real-world language use
+
+## Weaknesses of text-as-data
+- Context collapse 
+- Requires heavy pre-processing
+- Interpretation is non-trivial 
+- Highly sensitive to construction choices [@boyd2012]
+- Commercial interests shape what data we can collect and if it is available over time [@karstens2023]
+- Dataset construction can be very time consuming and needs a lot of validation [@katz2023]
+
+## Key take aways
+- Data does not "exist" — it is constructed
+- Sampling shapes what is observed
+- Institutions shape what is recorded
+- Methods shape what becomes measurable
+
+## Your turn
+
+-   Go to the class GitHub repository, <https://github.com/inessadeangelis/INF2167> and to the "Week 4" folder
+-   Download the lab questions called `week4_lab.qmd` that are in that folder
+
+## Submission
+
+-   Please upload your .qmd file and PDF to Quercus under "Assignments" <br> -> "In-class Lab 4"
+
+## For next week
+
+-  No assigned readings next week (June 4) - in-class test 1 
+-  Don't forget to bring a pencil to class
+
+## References
+

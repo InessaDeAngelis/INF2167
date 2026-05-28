@@ -1,0 +1,222 @@
+---
+title: "Week 4 Lab: Data sources, collection and sampling"
+subtitle: "INF2167 - R for Data Science"
+author: "Inessa De Angelis"
+date: "05/28/2026"
+date-format: long
+format: pdf
+execute: 
+  warning: false
+---
+
+In this lab, you’ll work with a survey dataset and explore how data is constructed through decisions about who is included, how responses are measured, and how categories are defined. You will also reflect on how these choices shape what we can and cannot learn from data.
+
+Before you begin, update the author name in the document front matter to your first and last name. Then, complete the lab by writing your code and answers directly below each question. Submit your .qmd file and PDF on Quercus. You may work individually or in small groups. For the group project section, you and your partner should work together on ideas, but each member of the group should submit their own files on Quercus.
+
+# Individual/Group: Working with survey data
+
+## Set up and inspecting our dataset
+
+First, let's set up our workspace and read in the cleaned Canadian Election Study (CES) dataset. I've selected a few variables from the 2019 CES (web) and done some preliminary cleaning. If you are interested in learning more about the 2019 CES, check out the article: [*Measuring preferences and behaviours in the 2019 Canadian Election Study*](https://doi.org/10.1017/S0008423920001006)
+
+```{r workspace setup}
+## Load package ##
+library(tidyverse)
+
+## Read in the dataset ##
+ces_data <- read_csv("data/cleaned_ces.csv", show_col_types = FALSE) 
+```
+
+Now, let's get an overview of the dataset:
+
+```{r overview}
+glimpse(ces_data)
+```
+
+**What do you notice about the values in the `Gender` variable? Are the categories clear and easy to read? Or are they overly long and detailed?** 
+
+## Re-coding
+
+Now, we will begin changing how variables are represented in the dataset. Remember from the lecture that this is called re-coding, and it is one way that we can transform raw data into cleaner, analyzable data.
+
+First, look at the current values of the `Gender` variable. 
+
+```{r}
+unique(ces_data$Gender)
+```
+
+You should see categories like "A woman" and "A man". These are somewhat clear, but could be clearer for analysis.
+
+Let's re-code the `Gender` variable options using the code we went over in class. After re-coding, "A woman" should be "Woman", "A man" should be "Man", and "Other (e.g. Trans, non-binary, two-spirit, gender-queer)" should be "Other". 
+
+Write your code in the code chunk below:
+
+``` {r}
+# YOUR CODE HERE
+```
+
+## Exploring the dataset
+Now that we have cleaned and re-coded some variables, we will begin exploring what the dataset looks like. Remember from the lecture that a sample is only a subset of a population and different sampling processes can shape what we observe.
+
+### Province distribution
+Let’s start by looking at where respondents are from:
+
+``` {r}
+ces_data |>
+  count(Province) |>
+  arrange(desc(n))
+```
+
+**What do you notice about the distribution of respondents across provinces? Are some provinces more represented than others?**
+
+### Respondent age
+
+Now, let's look at the age of respondents:
+
+``` {r}
+ces_data |>
+  summarize(
+    min_age = min(Age, na.rm = TRUE),
+    max_age = max(Age, na.rm = TRUE),
+    mean_age = mean(Age, na.rm = TRUE),
+    median_age = median(Age, na.rm = TRUE))
+```
+
+What is the typical age range in this sample? Are there any potential limitations in how age is distributed?
+
+### Respondent education
+
+Looking at the `Education` variable now, which levels of education attained are the most and least represented in the dataset? 
+
+``` {r}
+ces_data |>
+  group_by(Education) |>
+  count() |>
+  ungroup() |>
+  mutate(percentage = round(n / sum(n) * 100, 2)) |>
+  arrange(desc(n))
+```
+
+### Respondent employment
+
+Now, let's look at the `Employment` variable. 
+
+```{r}
+ces_data |>
+  group_by(Employment) |>
+  count() |>
+  ungroup() |>
+  mutate(percentage = round(n / sum(n) * 100, 2)) |>
+  arrange(desc(n))
+```
+
+What do you notice about how employment status is coded in this dataset? Are people always in a single clear category or do some categories overlap?
+
+## Ideology
+Now we will examine a variable that is often used to measure political affiliation: `Ideology`. This is often measured on a left-right scale where respondents place themselves. 
+
+Using `unique()` shows all the different values that appear in the `Ideology` variable, but it does not tell us how those values are distributed or what they represent.
+
+``` {r}
+unique(ces_data$Ideology)
+```
+
+Now, go to the [2019 Canadian Election Study Codebook](https://dimension.usherbrooke.ca/documents/CES2019Codebook.pdf). Search for the variable `cps19_lr_scale_aft_1` (I re-named it to `Ideology`). Using the codebook, answer the following questions:
+
+**- What do the lowest and highest values on the scale represent?**
+
+**- What does a value in the middle of the scale represent?**
+
+**- How does self-placement potentially shape the data collected?**
+
+## Sampling variability
+So far, we have been working with the full dataset. In real research, however, we often work with samples, not full populations. To see how sampling affects results, we will draw two different random samples from the same dataset and compare them.
+
+### First random sample
+
+We set a seed using `set.seed()` so that results are reproducible, then draw a random sample of 200 respondents using the `slice_sample()` function:
+
+```{r}
+set.seed(16)
+
+sample1 <- ces_data |>
+  slice_sample(n = 200)
+```
+
+Now calculate the mean age in the full dataset and in this sample:
+
+```{r}
+## Full dataset ##
+mean(ces_data$Age, na.rm = TRUE)
+
+## Sample ##
+mean(sample1$Age, na.rm = TRUE)
+```
+
+### Second random sample
+
+Now we repeat the process with a different seed:
+
+```{r}
+set.seed(26)
+
+sample2 <- ces_data |>
+  slice_sample(n = 200)
+```
+
+Compare again:
+
+```{r}
+## Full dataset ##
+mean(ces_data$Age, na.rm = TRUE)
+
+## Sample ##
+mean(sample2$Age, na.rm = TRUE)
+```
+
+### Questions
+
+**- Are the sample means identical to the full dataset mean? Why or why not?**
+
+**- How do sample1 and sample2 differ from each other?**
+
+**- What does this tell us about using samples to make claims about a population?**
+
+## Sampling and group composition
+Now, let's look at whether the composition of categories also changes across samples:
+
+```{r}
+sample1 |> count(Gender)
+sample2 |> count(Gender)
+```
+
+### Questions
+
+**- Do the counts for `Gender` look the same in both samples? How do they differ?**
+
+**- What does this suggest about using a single sample to describe a population?**
+
+## Bonus: Graphing
+
+Applying some of the data visualization techniques we learned last week (week 3), create at least one plot exploring a relationship between two variables in the dataset. It is up to you which variables you select and what type of graph you choose to make. 
+
+Some questions you may consider answering include:
+
+- Does ideology vary by gender or education?
+
+- How is age distributed across provinces?
+
+- Are there visible differences in education levels across groups?
+
+```{r}
+# GRAPH HERE
+```
+
+
+# Group project: Dataset construction and analysis 
+
+**Based on the types of datasets we discussed in today's lecture and some of the others that we will discussing in more detail during week 6, what type of dataset do you think you'll construct and use for your project proposal and paper?**
+
+**Who might be missing from your dataset and how could you account for that in your analysis?**
+
+**How does the way your key concept is measured affect what you can learn from your dataset? What might this measure leave out or simplify too much?**
