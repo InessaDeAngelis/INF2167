@@ -1,0 +1,531 @@
+---
+title: "Data sources, exploratory data analysis and descriptive statistics"
+subtitle: "INF2167, Week 6"
+date: "June 11, 2026"
+date-format: long
+author: 
+  name: "Inessa De Angelis"
+format:
+  revealjs:
+    pdf-separate-fragments: true
+    theme: [default, custom.scss]
+    highlight-style: github
+    slide-number: true
+bibliography: ref.bib
+csl: apa.csl
+---
+
+## Announcements
+- Reminder: no class for the next two weeks (June 18 and 25)
+- Your final project proposal is due on Thursday, June 18 by 11:59pm on Quercus
+
+    -  Only one member of the group needs to submit - the submission is counted for all group members
+    
+- I will hold hours on Monday, June 15 and 22
+- Office hours are cancelled on Monday, June 29 (President’s Day)
+- Requests for extensions or accommodations must be made *before* the assignment deadline using the [course notifications/accommodations form](https://forms.cloud.microsoft/r/fHHS9cSRvA)
+
+## Objectives
+
+- Explain how social media platforms structure what data exists and how APIs and platform governance shape research access
+
+- Evaluate ethical issues in social media research, including privacy, consent, and the public/private boundary of digital data
+
+- Interpret patterns in digital trace data while recognizing sources of bias, including selection, visibility, and platform effects
+
+- Use R to conduct exploratory data analysis (EDA) and calculate, visualize, and interpret descriptive statistics from social media datasets
+
+## Last week
+- Last week, we discussed and worked with several forms of structured data, including survey data and administrative records
+
+- These data are typically collected for clearly defined purposes and are organized into predefined variables and categories
+
+- This week, we turn to social media data and other forms of digital trace data
+
+- Unlike surveys and administrative records, social media data are often less structured, continuously generated, and shaped by the design and governance of digital platforms
+
+## Social media data as data
+- Social media data is shaped long before we collect and analyze it
+- Platform algorithms, content moderation, and API access rules shape the data and who is and is not represented in our dataset
+
+## Digital trace data
+- *Digital trace data* is the data we leave as we navigate the web or use other digital tools [@howison2011]
+
+- We can think of digital trace data like a digital cookie crumbs trail 
+
+- Examples include cookies in a browser, log data on social media platforms, Google search history, other traces of continuous interactions with digital platforms [@ohme2024]
+
+## Digital trace data: key characteristics
+- Users' digital trace data are unobtrusively and continuously collected by digital platforms and are therefore non-reactive
+- It enables the analysis of content usage on a granular individual level
+- Digital trace data can capture content that is [@ohme2024]:
+    - produced by users (posts, stories, comments, reactions, photos/videos, private messages)
+    - selected by users (searches; selective exposure)
+    - selected for users (algorithmic recommendations/filtering)
+    - received by users (scrolling through posts of others, articles, videos, private messages)
+    
+## Challenges of working with digital trace data    
+- Digital trace data methods require that researchers deal with data access points of commercial platforms (e.g., APIs or data donation packages), introduce new data types (e.g., screenshots), link the data to known concepts and develop new data analytical procedures [@ohme2024]
+- Determining content engagement and production in digital trace data is an especially difficult task because many social media platforms do not provide this information through their data access endpoints
+
+## Social media versus digital trace data
+
+- Digital trace data is broader
+
+- Social media data is specific to social media platforms
+
+- Digital trace data can include social media data
+
+## Social media as a broadcast tool
+- Although social media is often described as "interactive", most platforms behave as: 
+
+    - broadcasters
+
+    - recommendation systems (algorithms distribute content)
+
+    - attention markets (engagement is the key currency)
+    
+
+## From social media to parasocial media
+
+- @boyd2026 recently theorized that social media is now *parasocial media*
+
+- Social media platforms are no longer primarily organized around social interaction
+
+- Instead, platforms increasingly function as broadcast media and encourage users to optimize content for algorithmic visibility
+
+- This has implications for the kinds of digital traces users leave behind 
+
+    - For example, some users are simply "lukers" [@oswald2025]
+
+This means that our datasets are often not representative of "users", but of platform-visible activity
+
+## AI and social media data
+
+- AI in social media can be seen as an infrastructure that shapes the epistemic and normative conditions under which content is produced, amplified, and perceived as legitimate online [@moller2026]
+
+- AI increasingly influences what users see, engage with, and create
+
+- As a result, digital traces reflect both user behaviour and algorithmic systems
+
+## Social media data collection
+
+- Always try to use  Application Programming Interface (APIs) or other officially sanctioned means to collect data instead of web scraping 
+
+- The advantage of using an API is that the data provider usually specifies the data that they are willing to provide and the terms are willing to provide it
+
+## The post-API era
+
+@freelon2018 argues that:
+
+- API access is increasingly restricted
+
+- Methods must adapt to platform instability
+
+- Our ability to ask certain research questions is limited
+
+- Researchers lose the ability to study certain user behaviours and phenomena on certain platforms (for example, disinformation on Facebook) which undermines our ability to understand pressing issues in the social world
+
+- The implication is that data access is political
+
+## The post-post-API era
+- More recently, @mimizuka2025 argued that we are in a new era of social media research, called the "post-post-API era" brought on by 
+European Union’s Digital Services Act (DSA)
+
+- While this Act promises on paper to give researchers more access, significant challenges in accessing social media data remain. For example, researchers in multiple countries, including Germany and Hungary have sued Twitter over data access [@Gkritsi2026]
+
+## Ethical considerations
+ - When thinking about collecting social media data, what are some of the ethical considerations that come to mind? 
+
+    - For example, is a public post truly public?
+
+    - Do users understand platform visibility settings?
+
+    - Should deleted posts still be analyzed if researchers have saved copies?
+
+## Ethical considerations
+
+- Even when data are publicly available, we must consider **privacy**, **informed consent**, **minimizing harms**, and **context** [@luka2018; @zimmer2010; @zimmer2018]
+
+
+## Privacy and informed consent
+
+- Social media users rarely provide informed consent for research purposes
+
+- Public availability does not necessarily imply consent
+
+- Researchers should consider users' expectations about how their content will be used
+
+- Privacy often trumps reproducibility
+
+- In some cases, paraphrasing posts rather than quoting them directly can help protect privacy
+
+## Minimizing harms
+
+- Researchers should consider whether publication could expose users to harassment, reputational damage, or unwanted attention
+
+- Particular care should be taken when studying vulnerable populations
+
+- The benefits of research should outweigh potential harms to participants
+
+## Context
+
+- @luka2018 advocate for using a feminist ethics of care when working with big data such as data from social media
+
+- In practice, they argue that researchers should consider positionality, privacy, data ownership, and how research findings affect the communities being studied
+
+## Ethics as a methodological issue
+
+Ethics is not something we consider at the end of our project, it actively influences:
+
+  - what data we collect
+
+  - how we store our data
+
+  - how we analyze our data
+
+  - how we report our findings
+
+## Exploratory Data Analysis (EDA)
+
+- @alexander2023 defines EDA as "... the process of coming to terms with a new dataset by looking at the data, constructing graphs, tables, and models"
+
+- We want to understand three aspects, as these will affect our analysis:
+
+  - each individual variable by itself
+  
+  - each individual variable in the context of other relevant variables
+  
+  - the data that are not there
+
+## Types of missing data
+
+- There are three main types of missing data [@gelman2020]
+
+  - Missing Completely At Random (MCAR)
+  
+  - Missing at Random (MAR)
+  
+  - Missing Not At Random (MNAR) 
+  
+## Missing Completely At Random
+
+- When data are MCAR, observations are missing from the dataset independent of any other variables (whether in the dataset or not) 
+
+- There are fewer concerns about inference, when data are MCAR
+
+- Data are rarely MCAR
+
+- Example: A researcher accidentally loses 10% of survey responses because of a file corruption error
+
+## Missing at Random
+
+- When data are MAR, they are missing from the dataset in a way that is related to other variables in the dataset
+
+- Example: Men are less likely to respond to a political preferences survey, but among men, response rates do not depend on which party they support
+
+## Missing Not At Random
+
+- When observations are MNAR, they are missing from the dataset in a way that is related to either unobserved variables or the missing variable itself
+
+- Example: Individuals who strongly support a controversial party are less likely to answer a survey question about political support
+
+## Missing data in social media research 
+- Missingness is often structural, not accidental because of platform policies and design, including: 
+
+    - Gender norms in social media use
+   
+    - Posts getting deleted (including content moderation)
+    
+    - Accounts being made private
+    
+    - API limits
+    
+    - Platform filtering
+
+    - Algorithmic visibility constraints
+
+- This is why missing social media data is often closer to being MNAR than MCAR
+
+## Sources of bias in social media data
+- **Selection bias**: some groups are more likely to use platforms or produce content than others
+
+-  **Visibility bias**: researchers observe visible activity rather than all activity
+
+    - For example, researchers cannot collect users' direct messages, unless our source of data is from data donation
+  
+
+-  **Platform effects **: algorithms, moderation, and platform features shape what is produced and what can be observed
+
+- These biases influence both what data exist and what conclusions we can draw from them
+
+## Dealing with missing data
+
+- Sometimes missing data is encoded in the variable with particular values, such as "99" for numeric data
+
+- Creating graphs and tables is helpful for finding this data
+
+## Dealing with missing data (continued)
+
+- Nothing can make up for missing data
+
+- The way we deal with missing data depends on the dataset itself and the context
+
+- There is rarely a clear choice or solution, but it is important to document and communicate whatever was done
+
+- As well, exploring the effect of different options can help improve confidence in the choice you made as well 
+
+## Plotting your data?
+- Why can plotting your data help with missingness?
+
+## Plot your data!
+- Visualization can help us see:
+  
+  - skewed distributions
+  
+  - outliers 
+
+- During EDA, the focus is not on whether our graph looks nice, but rather trying to understand our data as quickly as possible
+
+```{r}
+#| echo: false
+library(here) 
+library(tidyverse)
+delays <- read_csv(here("Week_6/lecture_data/delays.csv"), show_col_types = FALSE)
+```
+
+## Example: Plot your data!
+
+```r{}
+delays |>
+  summarize(
+    mean_delay = mean(delay_min),
+    median_delay = median(delay_min),
+    sd_delay = sd(delay_min),
+    max_delay = max(delay_min))
+```
+We can see that mean is larger than the median, which is a sign of right-skewed data driven by a small number of extreme delays
+
+```{r}
+delays |>
+  summarize(
+    mean_delay = mean(delay_min),
+    median_delay = median(delay_min),
+    sd_delay = sd(delay_min),
+    max_delay = max(delay_min))
+```
+
+## Example: Plot your data! (continued)
+- Let's plot our data
+```r{}
+ggplot(delays, aes(x = delay_min)) +
+  geom_histogram(bins = 40, fill = "tomato") +
+  labs(x = "Delays (minutes)", y = "Number of delays")
+```
+## Example: Plot your data! (continued)
+- Now that we visualize the same data, we can see things that the descriptive statistics did not make obvious. What do you notice?
+
+```{r}
+#| fig-align: center
+
+ggplot(delays, aes(x = delay_min)) +
+  geom_histogram(bins = 40, fill = "tomato") +
+  labs(x = "Delays (minutes)", y = "Number of delays")
+```
+
+## Example: Plot your data! (continued)
+- Now we apply a log scale to compress the very large delays and expand the smaller values
+```r{}
+delays |>
+  filter(delay_min > 0) |>
+  ggplot(aes(x = delay_min)) +
+  geom_histogram(bins = 40, fill = "tomato") +
+  scale_x_log10() +
+  labs(x = "Delays (minutes)", y = "Number of delays")
+```
+
+## Example: Plot your data! (continued)
+
+- What do you notice about the shape of the distribution now compared to the previous plot?
+
+```{r}
+#| fig-align: center
+
+
+delays |>
+  filter(delay_min > 0) |>
+  ggplot(aes(x = delay_min)) +
+  geom_histogram(bins = 40, fill = "tomato") +
+  scale_x_log10() +
+  labs(x = "Delays (minutes)", y = "Number of delays")
+```
+
+## EDA of Bluesky data
+
+- We're going to focus on exploring the dataset underlying the Canadian MPs on Bluesky paper that you read for this week [@deangelis_alexander]
+
+## Joining datasets
+
+- Joining together entire datasets or select variables from datasets are very common dataset manipulations
+
+- There are many options to join datasets, including `left_join()`, `right_join()`, `inner_join()`, and `full_join()` (all part of the `tidyverse`)
+
+## Types of joins
+
+- `left_join()` keeps all rows from the left dataset and adds matching information from the right dataset when available
+
+- `right_join()` keeps all rows from the right dataset and adds matching information from the left dataset (mirroring `left_join()`)
+
+- `inner_join()` keeps only rows that match in both datasets (intersection only)
+
+- `full_join()` keeps all rows from both datasets, unmatched values are listed as `NA`
+
+- Hint: [Chapter 19](https://r4ds.hadley.nz/joins.html) of *R for Data Science* has use cases for all types of joins
+
+## left_join()
+
+- `left_join()` is most useful where we have one main dataset that we are using and there is another dataset with some additional variables or metadata that we want to add to it [@wickham2023]
+
+![*Source: Wickham et al., 2023*](left_join.png)
+
+## left_join()(continued)
+- The most important aspect is that there is at least one shared column between the two datasets that we can use to link them
+
+- Common shared columns could be post/video IDs, social media usernames, student numbers, etc.
+
+- This is the type of join that you'll most commonly use
+
+## Example: left_join() 
+
+- I often use `left_join()` to match up data about politicians (their gender, party affiliation, incumbency status, etc.) with comments or posts from their social media
+
+- Let's walk through how to use `left_join()` by using the datasets that underpin the analysis in @deangelis_alexander
+
+```{r}
+#| echo: false
+mps_bluesky <- read_csv(here("Week_6/lecture_data/cdn_mps_bluesky.csv"), show_col_types = FALSE)
+bluesky_posts <- read_csv(here("Week_6/lecture_data/bluesky_posts.csv"), show_col_types = FALSE)
+```
+
+## Example: left_join() (continued)
+- We can use `left_join()` to join the MP data with their Bluesky posts
+- We specify the common column(s) that we are using to link the two datasets within the `join_by()` bracket
+- If the observations within each column are the same, but the the columns are named different things, we specify `author_name==name`
+
+```r{}
+both <- bluesky_posts |> 
+  left_join(mps_bluesky, by = join_by(author_handle==username))
+```
+
+## Example: left_join() (continued)
+- We can see now that all columns from the *MP dataset* have been added to the *Bluesky post dataset*
+```{r}
+both <- bluesky_posts |> 
+  left_join(mps_bluesky, by = join_by(author_handle==username)) |>
+  select(-name)
+head(both)
+```
+
+## Example: left_join() (continued)
+- We can also specify that we only want to add some columns when we join the two datasets together by using `select()` in conjunction with `left_join`
+
+```r{}
+both2 <- bluesky_posts |>  
+  left_join(mps_bluesky |> select(username, gender, political_affiliation),
+    join_by(author_handle==username))
+```
+- Now our dataset only contains some of the MP information, such as their gender and political affiliation
+
+```{r}
+both2 <- bluesky_posts |>  
+  left_join(mps_bluesky |> select(username, gender, political_affiliation),
+    join_by(author_handle==username))
+head(both2)
+```
+
+## EDA of Bluesky dataset
+
+- Follow along using the `01-lecture_code.R` script in the `Week 6` folder
+
+## Descriptive statistics
+
+- Descriptive statistics summarize and describe a dataset
+
+- Common examples include:
+
+  - counts
+
+  - proportions
+  
+  - means
+
+  - medians
+
+  - standard deviations
+  
+## Descriptive statistics require interpretation
+
+- Descriptive statistics do not explain why these patterns may occur, so we should consider the following questions when interpreting them: 
+
+  - Compared to what?
+
+  - Is the difference substantively meaningful?
+
+  - Could missing data influence this result?
+
+  - Are we describing all users or only those whose social media activity is visible in our dataset?
+
+## count() versus summarize() 
+
+- Use `count()` when:
+
+  - you want to find the **frequency** of observations belong to each category
+  
+- Use `summarize()` when:
+
+  - you want to compute descriptive statistics about variables, such as means or medians
+  
+## Key takeaways
+- Social media data are shaped by platform design, algorithms, moderation systems, and data access policies
+
+- Researchers rarely observe all activity on a platform - they only observe particular traces
+
+- Missing data in social media research are often systematic rather than random
+
+- Ethical considerations influence every stage of the research process
+
+- Descriptive statistics and visualizations help us understand our data before conducting more advanced analyses
+
+- Contextualization is important at all stages - including data collection and EDA
+
+## In-class lab: Terms of Service and research practices
+
+- For the first part of today's lab, I am going to put you into small groups and you will be assigned a social media platform's terms of service specifically related to data collection and storage to review. 
+
+- Then, you'll look at one peer-reviewed journal article on the topic to see if/how the authors discuss data collection and storage
+
+- After about 20 minutes, each group will report back to the full class
+
+## Example: Terms of Service and research practices
+
+![](X_policy.png){fig-align="center"}
+
+## Example: Terms of Service and research practices (continued)
+
+![](tt_data.png){fig-align="center"}
+
+## Your turn
+
+-   Go to the class GitHub repository, <https://github.com/inessadeangelis/INF2167> and to the "Week 6" folder
+-   Download the lab questions called `week6_lab.qmd` that are in that folder
+
+## Submission
+
+-   Please upload your .qmd file and PDF to Quercus under "Assignments"  <br> -> "In-class Lab 6"
+
+## For next class (July 2)
+
+-   *Modern Dive*, Chapters 5 & 6
+-   *Regression & Other Stories*, Chapters 6, 7 & 10
+
+## References

@@ -1,0 +1,1001 @@
+date,line,cause,delay_min
+2025-02-28,Line 4,Signal issue,6
+2025-03-02,Line 1,Mechanical,13
+2025-01-15,Line 4,Signal issue,9
+2025-02-12,Line 4,Mechanical,45
+2025-01-08,Line 4,Police activity,9
+2025-01-20,Line 2,Police activity,14
+2025-02-15,Line 2,Signal issue,11
+2025-03-25,Line 4,Police activity,4
+2025-03-05,Line 4,Police activity,42
+2025-03-22,Line 4,Police activity,15
+2025-03-08,Line 1,Signal issue,3
+2025-02-25,Line 4,Signal issue,9
+2025-03-03,Line 4,Medical emergency,6
+2025-03-24,Line 1,Mechanical,2
+2025-01-21,Line 1,Signal issue,8
+2025-01-13,Line 2,Weather,8
+2025-03-29,Line 4,Signal issue,6
+2025-03-13,Line 4,Police activity,11
+2025-01-14,Line 1,Medical emergency,31
+2025-03-25,Line 1,Police activity,4
+2025-02-26,Line 4,Medical emergency,11
+2025-01-11,Line 2,Mechanical,8
+2025-02-09,Line 4,Mechanical,37
+2025-02-15,Line 2,Mechanical,2
+2025-03-16,Line 4,Weather,1
+2025-02-26,Line 2,Signal issue,6
+2025-01-24,Line 4,Mechanical,9
+2025-02-26,Line 4,Weather,32
+2025-02-25,Line 1,Signal issue,32
+2025-03-16,Line 4,Police activity,5
+2025-01-13,Line 1,Mechanical,4
+2025-02-08,Line 2,Medical emergency,10
+2025-02-26,Line 1,Medical emergency,8
+2025-02-19,Line 1,Police activity,50
+2025-01-01,Line 4,Mechanical,7
+2025-02-10,Line 1,Police activity,4
+2025-03-14,Line 4,Weather,11
+2025-01-01,Line 4,Mechanical,3
+2025-03-10,Line 4,Mechanical,17
+2025-03-09,Line 1,Signal issue,6
+2025-01-30,Line 2,Signal issue,6
+2025-03-10,Line 1,Mechanical,24
+2025-01-31,Line 2,Police activity,3
+2025-03-10,Line 1,Signal issue,5
+2025-01-26,Line 1,Mechanical,18
+2025-03-14,Line 4,Police activity,19
+2025-01-29,Line 4,Mechanical,23
+2025-01-02,Line 4,Police activity,9
+2025-03-08,Line 2,Mechanical,10
+2025-03-25,Line 1,Signal issue,12
+2025-02-15,Line 2,Signal issue,3
+2025-02-12,Line 4,Mechanical,3
+2025-01-07,Line 1,Police activity,10
+2025-01-23,Line 4,Mechanical,5
+2025-02-17,Line 4,Medical emergency,10
+2025-01-04,Line 4,Signal issue,8
+2025-01-05,Line 4,Medical emergency,2
+2025-01-03,Line 2,Signal issue,27
+2025-01-15,Line 1,Mechanical,3
+2025-01-18,Line 1,Mechanical,14
+2025-01-27,Line 2,Mechanical,13
+2025-03-25,Line 2,Weather,2
+2025-01-29,Line 1,Signal issue,6
+2025-03-16,Line 4,Police activity,16
+2025-01-17,Line 1,Mechanical,9
+2025-02-27,Line 1,Medical emergency,7
+2025-02-02,Line 4,Police activity,1
+2025-03-17,Line 2,Signal issue,21
+2025-03-08,Line 2,Weather,19
+2025-03-27,Line 2,Weather,7
+2025-01-21,Line 1,Police activity,5
+2025-02-22,Line 2,Mechanical,13
+2025-02-25,Line 1,Signal issue,12
+2025-03-30,Line 1,Signal issue,1
+2025-03-23,Line 4,Police activity,4
+2025-01-14,Line 1,Mechanical,24
+2025-03-28,Line 1,Police activity,14
+2025-02-28,Line 2,Mechanical,6
+2025-02-11,Line 2,Mechanical,11
+2025-01-02,Line 1,Mechanical,35
+2025-03-06,Line 1,Signal issue,4
+2025-03-23,Line 1,Mechanical,4
+2025-02-01,Line 2,Mechanical,2
+2025-01-29,Line 2,Medical emergency,2
+2025-02-15,Line 4,Mechanical,4
+2025-03-31,Line 2,Mechanical,2
+2025-03-15,Line 1,Signal issue,12
+2025-03-17,Line 2,Mechanical,15
+2025-02-21,Line 4,Weather,8
+2025-03-12,Line 2,Mechanical,2
+2025-01-12,Line 4,Mechanical,11
+2025-03-26,Line 2,Signal issue,2
+2025-01-26,Line 2,Mechanical,51
+2025-01-11,Line 4,Weather,2
+2025-01-17,Line 1,Mechanical,6
+2025-03-04,Line 4,Mechanical,2
+2025-03-03,Line 1,Police activity,2
+2025-03-14,Line 1,Signal issue,14
+2025-01-09,Line 2,Medical emergency,3
+2025-03-29,Line 2,Mechanical,39
+2025-01-29,Line 2,Mechanical,3
+2025-03-29,Line 4,Weather,4
+2025-02-05,Line 1,Signal issue,7
+2025-03-09,Line 1,Police activity,4
+2025-02-17,Line 4,Medical emergency,7
+2025-03-15,Line 4,Mechanical,33
+2025-02-26,Line 4,Signal issue,15
+2025-03-04,Line 4,Signal issue,4
+2025-01-06,Line 4,Mechanical,13
+2025-03-25,Line 2,Signal issue,9
+2025-03-04,Line 2,Signal issue,12
+2025-02-25,Line 4,Police activity,13
+2025-01-05,Line 2,Medical emergency,32
+2025-03-11,Line 1,Mechanical,13
+2025-01-11,Line 4,Mechanical,19
+2025-02-12,Line 1,Mechanical,26
+2025-03-09,Line 1,Signal issue,27
+2025-02-25,Line 2,Mechanical,3
+2025-03-30,Line 4,Mechanical,4
+2025-02-27,Line 2,Signal issue,37
+2025-01-30,Line 4,Signal issue,8
+2025-01-26,Line 4,Police activity,4
+2025-02-03,Line 1,Mechanical,26
+2025-02-03,Line 1,Police activity,8
+2025-02-10,Line 1,Mechanical,16
+2025-03-17,Line 1,Weather,8
+2025-03-25,Line 2,Mechanical,8
+2025-02-25,Line 2,Police activity,8
+2025-01-29,Line 1,Police activity,10
+2025-02-11,Line 2,Signal issue,1
+2025-01-12,Line 1,Weather,13
+2025-01-31,Line 2,Medical emergency,8
+2025-03-29,Line 1,Police activity,3
+2025-01-29,Line 2,Medical emergency,3
+2025-01-10,Line 1,Signal issue,18
+2025-03-07,Line 1,Mechanical,2
+2025-01-06,Line 4,Police activity,12
+2025-02-02,Line 1,Mechanical,11
+2025-02-28,Line 1,Mechanical,6
+2025-02-19,Line 1,Mechanical,6
+2025-02-24,Line 4,Police activity,2
+2025-01-20,Line 1,Mechanical,28
+2025-01-31,Line 1,Mechanical,15
+2025-01-24,Line 2,Mechanical,6
+2025-02-09,Line 4,Signal issue,3
+2025-01-31,Line 1,Mechanical,17
+2025-03-01,Line 2,Medical emergency,3
+2025-01-22,Line 1,Weather,9
+2025-01-06,Line 2,Weather,37
+2025-01-10,Line 1,Medical emergency,10
+2025-01-06,Line 1,Weather,7
+2025-03-23,Line 1,Medical emergency,4
+2025-03-24,Line 2,Mechanical,10
+2025-03-09,Line 4,Mechanical,5
+2025-01-31,Line 4,Medical emergency,4
+2025-01-28,Line 2,Signal issue,11
+2025-02-21,Line 4,Police activity,11
+2025-01-16,Line 4,Signal issue,7
+2025-01-23,Line 1,Police activity,4
+2025-02-28,Line 1,Police activity,5
+2025-02-26,Line 4,Mechanical,13
+2025-02-26,Line 1,Signal issue,18
+2025-01-23,Line 2,Police activity,1
+2025-01-08,Line 4,Police activity,3
+2025-02-24,Line 1,Mechanical,29
+2025-03-06,Line 2,Weather,8
+2025-03-03,Line 2,Mechanical,31
+2025-02-04,Line 4,Mechanical,9
+2025-03-19,Line 1,Mechanical,1
+2025-01-23,Line 1,Weather,15
+2025-01-05,Line 2,Mechanical,17
+2025-02-09,Line 1,Weather,49
+2025-01-06,Line 1,Signal issue,11
+2025-02-05,Line 4,Weather,2
+2025-03-11,Line 1,Medical emergency,32
+2025-01-13,Line 2,Medical emergency,11
+2025-03-18,Line 1,Signal issue,7
+2025-02-22,Line 2,Signal issue,4
+2025-01-25,Line 1,Mechanical,7
+2025-01-24,Line 2,Signal issue,7
+2025-01-01,Line 2,Mechanical,5
+2025-01-27,Line 4,Signal issue,1
+2025-03-12,Line 4,Signal issue,36
+2025-01-23,Line 4,Mechanical,15
+2025-01-02,Line 1,Signal issue,6
+2025-02-01,Line 2,Weather,13
+2025-01-20,Line 2,Weather,1
+2025-01-07,Line 2,Mechanical,11
+2025-03-23,Line 1,Signal issue,1
+2025-02-21,Line 2,Mechanical,2
+2025-03-16,Line 4,Signal issue,14
+2025-01-31,Line 2,Mechanical,24
+2025-02-11,Line 1,Signal issue,2
+2025-02-16,Line 4,Medical emergency,18
+2025-01-02,Line 4,Weather,18
+2025-01-30,Line 1,Medical emergency,35
+2025-03-22,Line 1,Police activity,1
+2025-02-12,Line 4,Medical emergency,8
+2025-02-24,Line 1,Mechanical,5
+2025-02-27,Line 4,Mechanical,18
+2025-03-24,Line 1,Weather,1
+2025-03-16,Line 4,Mechanical,0
+2025-03-30,Line 1,Signal issue,9
+2025-01-29,Line 4,Weather,9
+2025-01-08,Line 4,Signal issue,1
+2025-01-22,Line 2,Medical emergency,13
+2025-01-01,Line 4,Medical emergency,1
+2025-02-09,Line 2,Mechanical,2
+2025-02-01,Line 1,Mechanical,14
+2025-02-09,Line 1,Mechanical,49
+2025-02-26,Line 2,Medical emergency,7
+2025-03-09,Line 2,Weather,11
+2025-01-07,Line 1,Medical emergency,3
+2025-02-26,Line 2,Mechanical,11
+2025-02-25,Line 1,Signal issue,16
+2025-03-30,Line 4,Signal issue,2
+2025-02-26,Line 2,Mechanical,17
+2025-02-17,Line 2,Weather,2
+2025-01-18,Line 4,Medical emergency,9
+2025-02-20,Line 4,Medical emergency,2
+2025-03-27,Line 4,Medical emergency,8
+2025-03-09,Line 2,Medical emergency,12
+2025-03-29,Line 1,Signal issue,1
+2025-03-02,Line 2,Mechanical,8
+2025-02-23,Line 1,Weather,11
+2025-01-21,Line 1,Weather,9
+2025-01-06,Line 1,Mechanical,7
+2025-03-17,Line 2,Medical emergency,11
+2025-03-28,Line 1,Weather,1
+2025-02-15,Line 2,Mechanical,25
+2025-03-18,Line 1,Signal issue,4
+2025-03-03,Line 1,Mechanical,15
+2025-03-02,Line 2,Signal issue,5
+2025-02-03,Line 4,Mechanical,30
+2025-03-10,Line 1,Weather,3
+2025-01-24,Line 1,Police activity,8
+2025-02-10,Line 1,Weather,3
+2025-02-18,Line 2,Police activity,8
+2025-03-21,Line 2,Police activity,5
+2025-02-02,Line 2,Signal issue,11
+2025-03-06,Line 2,Weather,17
+2025-03-06,Line 4,Mechanical,8
+2025-02-09,Line 2,Weather,1
+2025-01-10,Line 1,Police activity,29
+2025-01-30,Line 1,Signal issue,7
+2025-01-19,Line 2,Signal issue,10
+2025-02-01,Line 1,Medical emergency,3
+2025-03-08,Line 1,Weather,5
+2025-01-07,Line 4,Signal issue,12
+2025-01-22,Line 2,Medical emergency,5
+2025-02-15,Line 1,Medical emergency,18
+2025-01-27,Line 4,Weather,18
+2025-02-03,Line 4,Medical emergency,8
+2025-02-26,Line 4,Mechanical,17
+2025-03-19,Line 4,Signal issue,18
+2025-03-03,Line 4,Mechanical,6
+2025-03-09,Line 1,Police activity,17
+2025-03-20,Line 4,Medical emergency,3
+2025-02-12,Line 2,Mechanical,5
+2025-03-28,Line 4,Mechanical,14
+2025-03-14,Line 1,Weather,11
+2025-01-26,Line 4,Mechanical,7
+2025-02-17,Line 1,Police activity,3
+2025-01-17,Line 2,Police activity,10
+2025-03-02,Line 4,Mechanical,3
+2025-01-09,Line 2,Mechanical,3
+2025-01-26,Line 1,Mechanical,4
+2025-03-07,Line 4,Mechanical,2
+2025-01-05,Line 2,Mechanical,22
+2025-01-07,Line 2,Mechanical,21
+2025-02-06,Line 4,Mechanical,21
+2025-01-20,Line 2,Signal issue,11
+2025-01-03,Line 1,Signal issue,24
+2025-03-31,Line 1,Mechanical,7
+2025-01-14,Line 4,Signal issue,8
+2025-03-06,Line 2,Medical emergency,6
+2025-01-08,Line 1,Weather,7
+2025-03-08,Line 1,Signal issue,1
+2025-01-11,Line 1,Mechanical,7
+2025-01-05,Line 2,Medical emergency,16
+2025-02-12,Line 1,Medical emergency,7
+2025-01-31,Line 2,Police activity,48
+2025-03-21,Line 2,Weather,3
+2025-01-27,Line 1,Mechanical,5
+2025-02-12,Line 1,Mechanical,62
+2025-02-27,Line 2,Medical emergency,15
+2025-01-17,Line 2,Signal issue,9
+2025-02-06,Line 1,Police activity,1
+2025-02-04,Line 4,Weather,1
+2025-03-05,Line 4,Mechanical,7
+2025-01-20,Line 2,Police activity,2
+2025-02-01,Line 1,Signal issue,2
+2025-02-04,Line 1,Mechanical,6
+2025-01-02,Line 2,Police activity,9
+2025-02-07,Line 4,Mechanical,15
+2025-03-24,Line 2,Signal issue,4
+2025-01-03,Line 2,Police activity,30
+2025-01-19,Line 1,Medical emergency,15
+2025-03-07,Line 2,Weather,30
+2025-01-07,Line 1,Mechanical,7
+2025-01-12,Line 2,Medical emergency,42
+2025-01-08,Line 2,Police activity,20
+2025-03-28,Line 1,Mechanical,1
+2025-03-04,Line 1,Mechanical,13
+2025-02-17,Line 2,Mechanical,4
+2025-01-11,Line 1,Weather,8
+2025-02-08,Line 2,Medical emergency,4
+2025-01-18,Line 2,Weather,6
+2025-02-11,Line 2,Mechanical,3
+2025-01-23,Line 4,Medical emergency,7
+2025-01-03,Line 2,Mechanical,6
+2025-03-12,Line 4,Signal issue,14
+2025-03-12,Line 4,Weather,14
+2025-03-06,Line 4,Police activity,7
+2025-03-22,Line 2,Mechanical,13
+2025-01-06,Line 2,Mechanical,2
+2025-03-29,Line 4,Medical emergency,5
+2025-03-01,Line 1,Mechanical,7
+2025-01-18,Line 4,Signal issue,4
+2025-03-16,Line 1,Signal issue,7
+2025-03-12,Line 2,Signal issue,6
+2025-01-06,Line 4,Mechanical,4
+2025-01-24,Line 2,Weather,11
+2025-01-17,Line 1,Signal issue,3
+2025-01-20,Line 1,Medical emergency,1
+2025-01-19,Line 4,Mechanical,1
+2025-01-12,Line 4,Signal issue,17
+2025-01-10,Line 1,Medical emergency,8
+2025-03-14,Line 2,Police activity,3
+2025-01-16,Line 1,Police activity,29
+2025-01-18,Line 1,Mechanical,15
+2025-01-02,Line 1,Mechanical,12
+2025-03-28,Line 4,Mechanical,3
+2025-02-12,Line 4,Mechanical,8
+2025-02-01,Line 2,Mechanical,3
+2025-03-14,Line 2,Medical emergency,15
+2025-02-12,Line 1,Signal issue,12
+2025-02-19,Line 2,Mechanical,10
+2025-01-22,Line 2,Weather,11
+2025-03-07,Line 4,Weather,2
+2025-01-07,Line 4,Mechanical,29
+2025-03-21,Line 4,Mechanical,33
+2025-01-14,Line 2,Signal issue,3
+2025-01-18,Line 1,Weather,20
+2025-01-14,Line 1,Police activity,17
+2025-01-31,Line 4,Medical emergency,28
+2025-03-23,Line 2,Medical emergency,29
+2025-03-26,Line 4,Medical emergency,7
+2025-02-03,Line 2,Weather,7
+2025-03-25,Line 2,Mechanical,1
+2025-01-06,Line 4,Medical emergency,54
+2025-01-26,Line 1,Signal issue,4
+2025-03-03,Line 1,Signal issue,25
+2025-01-03,Line 1,Signal issue,5
+2025-01-10,Line 2,Police activity,25
+2025-01-13,Line 4,Mechanical,16
+2025-03-25,Line 1,Mechanical,3
+2025-01-17,Line 2,Mechanical,13
+2025-01-14,Line 1,Police activity,1
+2025-02-09,Line 1,Medical emergency,13
+2025-02-27,Line 1,Mechanical,5
+2025-03-31,Line 4,Signal issue,5
+2025-03-21,Line 4,Police activity,31
+2025-03-05,Line 4,Medical emergency,2
+2025-01-10,Line 4,Medical emergency,5
+2025-03-30,Line 4,Signal issue,1
+2025-01-02,Line 1,Mechanical,17
+2025-03-08,Line 4,Signal issue,4
+2025-02-17,Line 4,Mechanical,6
+2025-02-08,Line 4,Medical emergency,13
+2025-03-19,Line 2,Mechanical,8
+2025-03-26,Line 1,Mechanical,25
+2025-02-14,Line 2,Mechanical,5
+2025-02-05,Line 1,Mechanical,16
+2025-02-02,Line 4,Signal issue,2
+2025-02-23,Line 1,Mechanical,2
+2025-02-19,Line 4,Police activity,13
+2025-03-24,Line 1,Signal issue,3
+2025-03-11,Line 1,Police activity,3
+2025-03-16,Line 2,Mechanical,41
+2025-01-03,Line 4,Mechanical,1
+2025-03-17,Line 1,Signal issue,7
+2025-01-12,Line 4,Mechanical,18
+2025-02-24,Line 4,Signal issue,5
+2025-03-08,Line 1,Police activity,5
+2025-03-14,Line 1,Signal issue,41
+2025-01-27,Line 1,Mechanical,3
+2025-02-05,Line 4,Police activity,2
+2025-01-14,Line 4,Mechanical,19
+2025-02-07,Line 1,Medical emergency,18
+2025-02-28,Line 1,Medical emergency,17
+2025-03-19,Line 1,Weather,17
+2025-03-13,Line 1,Mechanical,5
+2025-03-25,Line 2,Medical emergency,15
+2025-01-19,Line 4,Police activity,31
+2025-02-22,Line 1,Mechanical,10
+2025-01-23,Line 1,Signal issue,20
+2025-03-05,Line 2,Weather,27
+2025-03-10,Line 4,Mechanical,3
+2025-03-08,Line 1,Police activity,143
+2025-03-31,Line 4,Mechanical,3
+2025-01-23,Line 2,Medical emergency,7
+2025-01-26,Line 1,Mechanical,9
+2025-02-23,Line 4,Medical emergency,4
+2025-01-05,Line 1,Mechanical,13
+2025-01-12,Line 4,Mechanical,5
+2025-02-06,Line 2,Mechanical,20
+2025-03-17,Line 1,Mechanical,2
+2025-01-29,Line 2,Signal issue,10
+2025-03-29,Line 2,Mechanical,403
+2025-03-31,Line 1,Medical emergency,3
+2025-03-12,Line 2,Medical emergency,2
+2025-01-23,Line 4,Mechanical,8
+2025-03-09,Line 2,Police activity,9
+2025-01-02,Line 4,Mechanical,32
+2025-02-06,Line 4,Mechanical,7
+2025-03-07,Line 4,Signal issue,0
+2025-03-05,Line 1,Mechanical,10
+2025-01-24,Line 2,Mechanical,27
+2025-02-16,Line 1,Medical emergency,14
+2025-01-30,Line 2,Mechanical,52
+2025-03-18,Line 2,Signal issue,4
+2025-02-02,Line 4,Police activity,6
+2025-03-07,Line 1,Mechanical,4
+2025-03-13,Line 1,Mechanical,16
+2025-01-03,Line 1,Weather,4
+2025-02-21,Line 1,Police activity,20
+2025-02-07,Line 1,Medical emergency,7
+2025-01-19,Line 2,Mechanical,21
+2025-01-02,Line 4,Mechanical,4
+2025-02-15,Line 2,Medical emergency,1
+2025-03-07,Line 1,Police activity,5
+2025-03-17,Line 1,Signal issue,13
+2025-03-14,Line 2,Signal issue,2
+2025-03-28,Line 2,Mechanical,1
+2025-01-07,Line 4,Signal issue,3
+2025-01-28,Line 4,Signal issue,2
+2025-03-13,Line 1,Weather,2
+2025-01-18,Line 2,Mechanical,2
+2025-01-25,Line 1,Medical emergency,12
+2025-03-30,Line 2,Mechanical,12
+2025-02-08,Line 1,Weather,4
+2025-03-12,Line 4,Signal issue,6
+2025-01-10,Line 1,Signal issue,13
+2025-03-04,Line 1,Mechanical,5
+2025-01-06,Line 1,Medical emergency,4
+2025-03-28,Line 2,Mechanical,5
+2025-03-21,Line 1,Mechanical,78
+2025-03-14,Line 2,Police activity,1
+2025-01-25,Line 1,Medical emergency,6
+2025-03-05,Line 2,Medical emergency,2
+2025-03-16,Line 4,Police activity,6
+2025-01-25,Line 1,Signal issue,4
+2025-02-26,Line 1,Signal issue,33
+2025-03-18,Line 1,Police activity,7
+2025-03-25,Line 4,Signal issue,8
+2025-01-16,Line 1,Mechanical,10
+2025-03-12,Line 1,Signal issue,19
+2025-02-18,Line 2,Mechanical,2
+2025-02-24,Line 1,Police activity,9
+2025-03-21,Line 1,Weather,5
+2025-01-06,Line 2,Medical emergency,20
+2025-03-28,Line 2,Signal issue,11
+2025-02-14,Line 4,Signal issue,4
+2025-03-18,Line 1,Signal issue,7
+2025-03-13,Line 4,Mechanical,4
+2025-02-28,Line 2,Mechanical,11
+2025-01-28,Line 1,Signal issue,4
+2025-03-04,Line 4,Police activity,4
+2025-03-11,Line 2,Signal issue,17
+2025-01-01,Line 1,Mechanical,2
+2025-01-22,Line 1,Mechanical,4
+2025-01-17,Line 4,Weather,1
+2025-01-12,Line 1,Signal issue,7
+2025-01-21,Line 1,Medical emergency,5
+2025-03-13,Line 1,Mechanical,1
+2025-03-01,Line 1,Police activity,2
+2025-01-27,Line 1,Police activity,1
+2025-01-16,Line 1,Police activity,2
+2025-02-04,Line 4,Mechanical,5
+2025-03-27,Line 2,Medical emergency,4
+2025-03-31,Line 1,Weather,4
+2025-03-02,Line 4,Signal issue,4
+2025-03-31,Line 1,Signal issue,12
+2025-03-05,Line 4,Signal issue,11
+2025-01-03,Line 1,Signal issue,5
+2025-02-12,Line 1,Signal issue,20
+2025-03-08,Line 4,Medical emergency,3
+2025-01-09,Line 2,Mechanical,7
+2025-03-17,Line 4,Signal issue,12
+2025-01-29,Line 2,Weather,8
+2025-01-26,Line 2,Mechanical,34
+2025-02-06,Line 2,Mechanical,12
+2025-03-30,Line 4,Signal issue,24
+2025-01-10,Line 1,Mechanical,11
+2025-01-02,Line 4,Signal issue,11
+2025-03-06,Line 2,Mechanical,15
+2025-02-28,Line 1,Mechanical,19
+2025-01-17,Line 1,Police activity,14
+2025-02-20,Line 1,Signal issue,14
+2025-03-17,Line 2,Police activity,15
+2025-01-08,Line 1,Mechanical,6
+2025-02-05,Line 2,Mechanical,5
+2025-02-11,Line 2,Mechanical,28
+2025-01-14,Line 4,Medical emergency,8
+2025-02-23,Line 4,Mechanical,3
+2025-01-18,Line 4,Signal issue,24
+2025-01-14,Line 4,Mechanical,7
+2025-03-26,Line 2,Mechanical,6
+2025-01-26,Line 4,Weather,5
+2025-01-02,Line 2,Signal issue,6
+2025-01-29,Line 2,Mechanical,2
+2025-01-09,Line 1,Mechanical,9
+2025-03-24,Line 4,Mechanical,1
+2025-01-27,Line 4,Medical emergency,3
+2025-02-04,Line 1,Signal issue,5
+2025-02-04,Line 4,Medical emergency,14
+2025-03-12,Line 2,Medical emergency,11
+2025-01-31,Line 2,Mechanical,8
+2025-01-05,Line 1,Mechanical,0
+2025-02-01,Line 2,Mechanical,19
+2025-03-09,Line 2,Weather,8
+2025-03-27,Line 1,Medical emergency,6
+2025-03-07,Line 2,Police activity,17
+2025-01-15,Line 1,Mechanical,9
+2025-02-27,Line 1,Medical emergency,63
+2025-02-21,Line 2,Mechanical,3
+2025-02-28,Line 1,Police activity,6
+2025-02-17,Line 4,Medical emergency,11
+2025-03-20,Line 4,Weather,16
+2025-03-04,Line 4,Mechanical,4
+2025-02-05,Line 4,Mechanical,9
+2025-02-05,Line 4,Medical emergency,5
+2025-01-09,Line 4,Signal issue,8
+2025-03-02,Line 1,Police activity,11
+2025-03-26,Line 4,Mechanical,3
+2025-02-21,Line 2,Mechanical,2
+2025-03-28,Line 1,Mechanical,37
+2025-03-19,Line 4,Mechanical,13
+2025-03-16,Line 4,Mechanical,25
+2025-01-03,Line 4,Medical emergency,16
+2025-01-17,Line 1,Medical emergency,9
+2025-01-26,Line 2,Weather,0
+2025-01-03,Line 4,Mechanical,7
+2025-03-13,Line 4,Medical emergency,3
+2025-01-11,Line 1,Signal issue,10
+2025-03-27,Line 2,Mechanical,3
+2025-02-19,Line 2,Medical emergency,7
+2025-01-22,Line 4,Mechanical,12
+2025-03-26,Line 1,Police activity,53
+2025-02-04,Line 4,Signal issue,6
+2025-03-19,Line 4,Mechanical,14
+2025-02-22,Line 2,Signal issue,10
+2025-01-31,Line 2,Police activity,7
+2025-02-23,Line 2,Weather,16
+2025-02-02,Line 4,Signal issue,8
+2025-02-22,Line 4,Signal issue,42
+2025-03-27,Line 2,Police activity,4
+2025-01-08,Line 4,Signal issue,7
+2025-01-06,Line 4,Signal issue,10
+2025-03-07,Line 1,Medical emergency,13
+2025-03-15,Line 2,Medical emergency,10
+2025-02-11,Line 4,Mechanical,4
+2025-03-10,Line 1,Police activity,8
+2025-03-11,Line 1,Mechanical,5
+2025-01-02,Line 4,Mechanical,2
+2025-02-06,Line 4,Medical emergency,10
+2025-01-26,Line 2,Weather,27
+2025-03-25,Line 1,Signal issue,9
+2025-01-18,Line 1,Police activity,7
+2025-02-11,Line 2,Signal issue,2
+2025-02-21,Line 2,Signal issue,15
+2025-01-15,Line 2,Signal issue,2
+2025-03-19,Line 1,Weather,31
+2025-03-03,Line 4,Police activity,3
+2025-03-29,Line 1,Weather,1
+2025-02-11,Line 1,Medical emergency,10
+2025-02-10,Line 4,Signal issue,5
+2025-01-13,Line 2,Signal issue,6
+2025-03-15,Line 1,Mechanical,6
+2025-01-05,Line 1,Police activity,7
+2025-02-13,Line 1,Signal issue,5
+2025-02-10,Line 2,Mechanical,14
+2025-03-17,Line 1,Mechanical,12
+2025-03-11,Line 1,Signal issue,3
+2025-01-29,Line 4,Police activity,14
+2025-01-27,Line 1,Medical emergency,18
+2025-02-05,Line 4,Medical emergency,16
+2025-01-12,Line 2,Signal issue,2
+2025-03-20,Line 4,Police activity,2
+2025-02-05,Line 2,Signal issue,6
+2025-03-09,Line 2,Police activity,10
+2025-02-28,Line 2,Weather,20
+2025-03-17,Line 4,Medical emergency,34
+2025-01-04,Line 2,Mechanical,4
+2025-02-23,Line 4,Mechanical,3
+2025-03-25,Line 1,Mechanical,19
+2025-03-24,Line 4,Mechanical,11
+2025-02-19,Line 2,Mechanical,48
+2025-01-17,Line 4,Weather,38
+2025-01-26,Line 1,Medical emergency,26
+2025-02-13,Line 4,Signal issue,29
+2025-02-18,Line 2,Signal issue,5
+2025-03-12,Line 2,Signal issue,46
+2025-02-12,Line 1,Signal issue,3
+2025-03-12,Line 4,Signal issue,2
+2025-01-03,Line 4,Weather,17
+2025-02-22,Line 1,Mechanical,14
+2025-03-01,Line 2,Mechanical,4
+2025-01-31,Line 4,Mechanical,8
+2025-03-21,Line 4,Medical emergency,4
+2025-03-07,Line 4,Mechanical,9
+2025-03-20,Line 2,Signal issue,2
+2025-02-26,Line 2,Medical emergency,6
+2025-02-14,Line 4,Weather,34
+2025-03-21,Line 4,Mechanical,17
+2025-02-06,Line 2,Mechanical,7
+2025-03-08,Line 2,Police activity,3
+2025-02-09,Line 1,Medical emergency,10
+2025-01-09,Line 1,Mechanical,11
+2025-03-03,Line 4,Mechanical,4
+2025-01-22,Line 1,Mechanical,46
+2025-01-16,Line 1,Mechanical,10
+2025-03-30,Line 2,Weather,1
+2025-02-05,Line 4,Police activity,4
+2025-01-08,Line 4,Mechanical,16
+2025-03-03,Line 4,Mechanical,2
+2025-01-24,Line 1,Signal issue,17
+2025-01-04,Line 1,Medical emergency,16
+2025-03-10,Line 2,Signal issue,5
+2025-03-22,Line 1,Signal issue,3
+2025-01-26,Line 1,Police activity,12
+2025-02-11,Line 1,Weather,98
+2025-03-04,Line 1,Signal issue,8
+2025-01-20,Line 2,Mechanical,33
+2025-02-06,Line 1,Weather,6
+2025-03-24,Line 2,Weather,22
+2025-01-27,Line 1,Police activity,11
+2025-02-26,Line 4,Weather,22
+2025-01-29,Line 2,Medical emergency,38
+2025-03-30,Line 4,Weather,29
+2025-03-16,Line 2,Mechanical,16
+2025-03-07,Line 2,Mechanical,8
+2025-03-04,Line 2,Signal issue,3
+2025-02-21,Line 1,Signal issue,26
+2025-02-17,Line 4,Mechanical,21
+2025-03-23,Line 1,Weather,24
+2025-01-19,Line 2,Police activity,6
+2025-01-05,Line 2,Mechanical,4
+2025-02-15,Line 1,Police activity,7
+2025-03-29,Line 2,Medical emergency,4
+2025-01-13,Line 2,Mechanical,3
+2025-01-05,Line 2,Mechanical,7
+2025-01-02,Line 2,Signal issue,9
+2025-01-21,Line 4,Police activity,2
+2025-01-21,Line 4,Mechanical,17
+2025-02-18,Line 4,Police activity,4
+2025-01-17,Line 4,Mechanical,1
+2025-03-08,Line 2,Signal issue,28
+2025-03-28,Line 1,Signal issue,7
+2025-03-02,Line 4,Signal issue,32
+2025-03-14,Line 2,Mechanical,4
+2025-03-14,Line 4,Medical emergency,2
+2025-01-29,Line 2,Medical emergency,14
+2025-03-28,Line 1,Mechanical,13
+2025-02-05,Line 1,Signal issue,10
+2025-03-28,Line 2,Weather,5
+2025-03-31,Line 1,Mechanical,1
+2025-01-20,Line 2,Signal issue,16
+2025-03-07,Line 1,Mechanical,4
+2025-02-25,Line 2,Signal issue,10
+2025-02-21,Line 2,Mechanical,36
+2025-02-07,Line 2,Mechanical,19
+2025-02-10,Line 2,Weather,7
+2025-03-17,Line 1,Medical emergency,50
+2025-01-23,Line 1,Signal issue,3
+2025-02-28,Line 2,Signal issue,12
+2025-03-12,Line 1,Police activity,4
+2025-01-03,Line 1,Mechanical,3
+2025-02-06,Line 1,Medical emergency,14
+2025-01-26,Line 4,Mechanical,7
+2025-03-16,Line 2,Mechanical,5
+2025-02-04,Line 4,Signal issue,10
+2025-01-31,Line 4,Weather,11
+2025-03-11,Line 1,Medical emergency,7
+2025-01-23,Line 1,Mechanical,6
+2025-02-04,Line 1,Mechanical,8
+2025-02-09,Line 2,Signal issue,6
+2025-02-23,Line 2,Mechanical,3
+2025-02-02,Line 1,Mechanical,3
+2025-02-22,Line 2,Police activity,4
+2025-02-17,Line 2,Signal issue,5
+2025-02-26,Line 2,Police activity,9
+2025-01-14,Line 4,Mechanical,16
+2025-03-04,Line 4,Police activity,2
+2025-01-21,Line 2,Signal issue,10
+2025-02-16,Line 1,Mechanical,19
+2025-01-04,Line 2,Mechanical,38
+2025-03-04,Line 4,Signal issue,19
+2025-02-16,Line 2,Signal issue,2
+2025-01-15,Line 1,Signal issue,3
+2025-01-20,Line 1,Signal issue,21
+2025-02-24,Line 1,Mechanical,1
+2025-02-10,Line 1,Signal issue,19
+2025-03-30,Line 4,Medical emergency,35
+2025-02-17,Line 4,Signal issue,16
+2025-01-27,Line 1,Mechanical,4
+2025-03-16,Line 1,Mechanical,11
+2025-03-02,Line 1,Mechanical,3
+2025-02-07,Line 2,Police activity,2
+2025-03-18,Line 4,Signal issue,2
+2025-02-25,Line 1,Police activity,31
+2025-03-24,Line 1,Mechanical,5
+2025-03-31,Line 2,Police activity,24
+2025-02-04,Line 1,Mechanical,17
+2025-03-18,Line 1,Signal issue,11
+2025-01-16,Line 1,Medical emergency,5
+2025-02-05,Line 4,Signal issue,3
+2025-01-08,Line 4,Police activity,4
+2025-01-05,Line 4,Mechanical,11
+2025-03-25,Line 2,Medical emergency,5
+2025-01-22,Line 4,Mechanical,6
+2025-01-17,Line 2,Signal issue,6
+2025-01-21,Line 4,Mechanical,2
+2025-03-20,Line 1,Weather,6
+2025-02-09,Line 4,Mechanical,14
+2025-01-08,Line 1,Medical emergency,31
+2025-02-02,Line 1,Mechanical,1
+2025-03-17,Line 2,Signal issue,11
+2025-03-05,Line 1,Signal issue,17
+2025-03-04,Line 1,Medical emergency,5
+2025-01-12,Line 4,Mechanical,3
+2025-02-08,Line 4,Police activity,9
+2025-03-26,Line 1,Weather,151
+2025-02-27,Line 2,Signal issue,7
+2025-02-05,Line 1,Police activity,9
+2025-03-25,Line 4,Signal issue,17
+2025-02-05,Line 4,Signal issue,4
+2025-01-16,Line 4,Police activity,2
+2025-03-18,Line 1,Weather,3
+2025-02-28,Line 1,Mechanical,22
+2025-01-08,Line 4,Signal issue,8
+2025-02-28,Line 2,Police activity,25
+2025-03-05,Line 2,Signal issue,4
+2025-03-19,Line 2,Weather,13
+2025-03-26,Line 1,Mechanical,4
+2025-02-21,Line 1,Weather,3
+2025-03-10,Line 4,Signal issue,7
+2025-01-07,Line 2,Signal issue,7
+2025-02-01,Line 2,Mechanical,3
+2025-03-12,Line 1,Medical emergency,5
+2025-03-20,Line 4,Police activity,4
+2025-03-30,Line 4,Medical emergency,10
+2025-02-19,Line 4,Police activity,6
+2025-03-10,Line 4,Mechanical,12
+2025-01-18,Line 4,Medical emergency,2
+2025-01-07,Line 4,Mechanical,6
+2025-03-19,Line 1,Police activity,3
+2025-02-14,Line 1,Signal issue,23
+2025-02-11,Line 4,Mechanical,6
+2025-03-19,Line 1,Signal issue,10
+2025-01-11,Line 4,Mechanical,33
+2025-01-24,Line 2,Mechanical,12
+2025-03-23,Line 2,Signal issue,20
+2025-03-25,Line 1,Mechanical,19
+2025-01-31,Line 2,Mechanical,10
+2025-02-21,Line 1,Mechanical,26
+2025-01-26,Line 2,Weather,1
+2025-02-08,Line 4,Mechanical,0
+2025-01-03,Line 1,Mechanical,14
+2025-01-01,Line 2,Police activity,16
+2025-01-13,Line 1,Mechanical,8
+2025-03-26,Line 4,Signal issue,4
+2025-02-13,Line 1,Signal issue,5
+2025-03-24,Line 2,Signal issue,10
+2025-03-30,Line 4,Mechanical,0
+2025-01-31,Line 2,Medical emergency,2
+2025-03-06,Line 1,Medical emergency,48
+2025-02-27,Line 2,Medical emergency,8
+2025-03-12,Line 2,Signal issue,4
+2025-02-02,Line 1,Mechanical,9
+2025-01-02,Line 2,Signal issue,4
+2025-01-17,Line 4,Weather,5
+2025-02-19,Line 4,Medical emergency,10
+2025-01-30,Line 2,Mechanical,12
+2025-02-12,Line 4,Police activity,10
+2025-01-25,Line 2,Mechanical,4
+2025-03-30,Line 4,Signal issue,7
+2025-02-01,Line 4,Police activity,20
+2025-02-20,Line 1,Medical emergency,24
+2025-02-08,Line 1,Mechanical,9
+2025-02-21,Line 2,Weather,8
+2025-01-15,Line 2,Medical emergency,9
+2025-02-24,Line 1,Police activity,19
+2025-03-30,Line 1,Signal issue,30
+2025-02-04,Line 4,Mechanical,4
+2025-02-14,Line 2,Signal issue,5
+2025-03-19,Line 4,Medical emergency,4
+2025-01-07,Line 4,Signal issue,35
+2025-03-01,Line 1,Signal issue,17
+2025-01-28,Line 4,Mechanical,75
+2025-01-01,Line 2,Mechanical,29
+2025-03-24,Line 4,Mechanical,2
+2025-02-01,Line 2,Medical emergency,10
+2025-02-22,Line 1,Police activity,6
+2025-02-04,Line 4,Mechanical,11
+2025-02-24,Line 2,Medical emergency,16
+2025-01-15,Line 1,Mechanical,12
+2025-01-04,Line 4,Police activity,4
+2025-02-17,Line 2,Signal issue,1
+2025-01-19,Line 4,Police activity,3
+2025-03-07,Line 2,Signal issue,6
+2025-01-09,Line 2,Weather,3
+2025-01-29,Line 2,Weather,4
+2025-03-02,Line 4,Mechanical,8
+2025-02-11,Line 2,Police activity,10
+2025-02-02,Line 2,Mechanical,5
+2025-03-25,Line 2,Mechanical,44
+2025-02-25,Line 2,Medical emergency,7
+2025-03-06,Line 1,Police activity,69
+2025-03-21,Line 4,Medical emergency,7
+2025-01-01,Line 2,Medical emergency,11
+2025-01-11,Line 4,Police activity,6
+2025-02-28,Line 4,Police activity,12
+2025-02-17,Line 1,Mechanical,8
+2025-03-10,Line 1,Signal issue,4
+2025-01-09,Line 4,Police activity,10
+2025-01-26,Line 4,Signal issue,45
+2025-03-21,Line 4,Mechanical,4
+2025-01-14,Line 2,Signal issue,7
+2025-02-21,Line 1,Weather,11
+2025-01-14,Line 2,Mechanical,3
+2025-02-04,Line 2,Medical emergency,4
+2025-02-17,Line 4,Weather,3
+2025-01-24,Line 2,Police activity,7
+2025-01-03,Line 4,Signal issue,2
+2025-01-03,Line 4,Signal issue,18
+2025-03-05,Line 1,Signal issue,31
+2025-03-24,Line 2,Police activity,9
+2025-03-21,Line 4,Signal issue,12
+2025-03-22,Line 2,Mechanical,12
+2025-01-10,Line 4,Signal issue,7
+2025-03-22,Line 2,Medical emergency,2
+2025-01-08,Line 4,Mechanical,10
+2025-03-22,Line 1,Medical emergency,2
+2025-03-27,Line 1,Mechanical,18
+2025-03-18,Line 4,Mechanical,19
+2025-02-03,Line 4,Medical emergency,147
+2025-02-26,Line 4,Police activity,11
+2025-03-13,Line 4,Mechanical,11
+2025-02-16,Line 2,Weather,7
+2025-02-01,Line 4,Signal issue,6
+2025-01-29,Line 2,Signal issue,3
+2025-03-24,Line 1,Mechanical,5
+2025-01-11,Line 2,Medical emergency,12
+2025-01-20,Line 4,Signal issue,4
+2025-01-14,Line 1,Weather,3
+2025-01-07,Line 2,Signal issue,3
+2025-01-08,Line 2,Weather,4
+2025-03-01,Line 4,Medical emergency,2
+2025-03-01,Line 1,Mechanical,3
+2025-03-31,Line 4,Mechanical,2
+2025-01-19,Line 2,Mechanical,10
+2025-03-04,Line 4,Medical emergency,11
+2025-03-22,Line 1,Weather,3
+2025-03-31,Line 1,Police activity,16
+2025-02-26,Line 2,Police activity,22
+2025-02-22,Line 2,Signal issue,3
+2025-02-26,Line 2,Medical emergency,12
+2025-01-31,Line 1,Mechanical,15
+2025-02-25,Line 1,Police activity,9
+2025-01-30,Line 1,Mechanical,3
+2025-03-16,Line 1,Mechanical,13
+2025-03-12,Line 1,Mechanical,9
+2025-03-07,Line 1,Mechanical,6
+2025-02-07,Line 2,Mechanical,20
+2025-03-08,Line 1,Police activity,2
+2025-01-14,Line 4,Police activity,7
+2025-01-16,Line 4,Mechanical,4
+2025-01-31,Line 2,Mechanical,29
+2025-02-17,Line 1,Signal issue,2
+2025-03-07,Line 1,Mechanical,6
+2025-03-02,Line 2,Police activity,0
+2025-02-03,Line 2,Mechanical,3
+2025-01-12,Line 1,Weather,1
+2025-03-19,Line 4,Mechanical,4
+2025-01-09,Line 2,Mechanical,6
+2025-01-27,Line 4,Mechanical,15
+2025-03-30,Line 1,Signal issue,1
+2025-03-26,Line 2,Mechanical,5
+2025-02-25,Line 1,Mechanical,22
+2025-01-05,Line 4,Signal issue,3
+2025-01-06,Line 4,Weather,11
+2025-03-18,Line 1,Weather,2
+2025-03-18,Line 1,Mechanical,8
+2025-03-30,Line 2,Mechanical,8
+2025-01-29,Line 1,Police activity,7
+2025-02-10,Line 4,Police activity,5
+2025-01-12,Line 2,Police activity,14
+2025-02-08,Line 1,Police activity,3
+2025-01-01,Line 1,Signal issue,10
+2025-01-07,Line 1,Mechanical,16
+2025-01-08,Line 2,Medical emergency,1
+2025-03-29,Line 2,Signal issue,8
+2025-01-03,Line 1,Police activity,18
+2025-02-18,Line 1,Signal issue,7
+2025-03-04,Line 4,Weather,3
+2025-01-02,Line 4,Signal issue,6
+2025-03-03,Line 2,Mechanical,5
+2025-01-15,Line 1,Mechanical,23
+2025-02-09,Line 2,Medical emergency,3
+2025-03-28,Line 4,Signal issue,3
+2025-03-06,Line 1,Mechanical,14
+2025-02-09,Line 4,Mechanical,13
+2025-03-27,Line 1,Signal issue,3
+2025-03-07,Line 2,Signal issue,3
+2025-01-28,Line 1,Police activity,37
+2025-02-06,Line 4,Mechanical,8
+2025-01-26,Line 2,Police activity,20
+2025-01-28,Line 1,Mechanical,9
+2025-03-17,Line 4,Medical emergency,15
+2025-01-19,Line 2,Signal issue,8
+2025-02-17,Line 2,Mechanical,20
+2025-01-26,Line 4,Signal issue,4
+2025-01-23,Line 2,Signal issue,6
+2025-03-31,Line 2,Signal issue,18
+2025-01-20,Line 4,Weather,3
+2025-02-04,Line 4,Weather,7
+2025-02-15,Line 2,Signal issue,2
+2025-03-09,Line 4,Signal issue,1
+2025-01-28,Line 1,Signal issue,3
+2025-03-04,Line 2,Weather,15
+2025-03-24,Line 4,Mechanical,12
+2025-01-09,Line 1,Mechanical,2
+2025-02-27,Line 4,Medical emergency,1
+2025-02-09,Line 4,Signal issue,6
+2025-01-18,Line 1,Mechanical,9
+2025-01-30,Line 2,Signal issue,25
+2025-01-08,Line 1,Mechanical,10
+2025-02-02,Line 2,Weather,21
+2025-02-01,Line 1,Medical emergency,15
+2025-02-17,Line 1,Signal issue,7
+2025-02-22,Line 1,Signal issue,17
+2025-02-05,Line 4,Mechanical,11
+2025-01-18,Line 2,Mechanical,15
+2025-03-14,Line 4,Signal issue,1
+2025-03-28,Line 4,Mechanical,3
+2025-03-09,Line 2,Weather,1
+2025-01-27,Line 1,Medical emergency,11
+2025-01-25,Line 1,Signal issue,32
+2025-03-01,Line 4,Medical emergency,1
+2025-01-18,Line 4,Signal issue,12
+2025-01-03,Line 1,Signal issue,29
+2025-03-20,Line 2,Mechanical,3
+2025-03-12,Line 4,Weather,8
+2025-01-21,Line 1,Medical emergency,3
+2025-03-02,Line 2,Weather,1
+2025-03-26,Line 4,Signal issue,32
+2025-02-08,Line 1,Mechanical,9
+2025-03-31,Line 2,Mechanical,20
+2025-01-14,Line 2,Mechanical,25
+2025-03-07,Line 4,Weather,4
+2025-03-02,Line 2,Police activity,1
+2025-01-17,Line 2,Weather,4
+2025-01-17,Line 2,Medical emergency,12
+2025-02-26,Line 4,Police activity,8
+2025-01-02,Line 1,Signal issue,9
+2025-02-04,Line 1,Mechanical,7
+2025-03-16,Line 1,Medical emergency,6
+2025-03-12,Line 4,Mechanical,2
+2025-03-12,Line 4,Mechanical,33
+2025-01-27,Line 4,Signal issue,22
+2025-03-26,Line 1,Mechanical,13
+2025-03-30,Line 4,Medical emergency,11
+2025-01-18,Line 1,Signal issue,2
+2025-02-04,Line 4,Weather,8
+2025-03-28,Line 4,Mechanical,3
+2025-03-18,Line 4,Police activity,8
+2025-02-24,Line 2,Mechanical,3
+2025-03-04,Line 2,Signal issue,4
+2025-01-15,Line 1,Police activity,5
+2025-01-05,Line 1,Signal issue,10
+2025-02-03,Line 1,Mechanical,3
+2025-02-08,Line 4,Mechanical,15
+2025-01-30,Line 4,Mechanical,1
+2025-01-07,Line 1,Weather,21
+2025-01-12,Line 4,Police activity,1
+2025-01-11,Line 1,Mechanical,21
+2025-03-01,Line 2,Mechanical,36
+2025-01-18,Line 1,Mechanical,9
+2025-01-20,Line 2,Signal issue,5
+2025-02-07,Line 2,Medical emergency,2
+2025-02-09,Line 4,Signal issue,4
+2025-03-09,Line 2,Weather,19
+2025-02-05,Line 2,Mechanical,11
+2025-01-09,Line 2,Signal issue,14
+2025-01-19,Line 4,Medical emergency,116
+2025-01-15,Line 4,Medical emergency,1
+2025-03-18,Line 4,Signal issue,1
+2025-01-03,Line 1,Mechanical,9

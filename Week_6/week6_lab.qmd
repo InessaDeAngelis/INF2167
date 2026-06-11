@@ -1,0 +1,136 @@
+---
+title: "Week 6 Lab: Data sources, exploratory data analysis and descriptive statistics"
+subtitle: "INF2167 - R for Data Science"
+author: "Inessa De Angelis"
+format: pdf
+execute: 
+  warning: false
+---
+
+In this lab, we will examine how social media platform policies shape what data researchers can collect, store, and analyze. We will then practice working with social media data using exploratory data analysis (EDA), visualization, and descriptive statistics in R.
+
+Before you begin, update the author name in the document front matter to your first and last name. Complete the lab by writing your code and answers directly below each question. Submit your .qmd file and PDF on Quercus. This lab will be completed in assigned groups of 2-3. You must submit your own files, but discussion and collaboration within your group is expected.
+
+# Part 1: Platform Terms of Service and Data Access
+
+## Step 1: Platform and documentation review
+
+**Each group will be assigned one platform. Please individually skim your platform’s developer or data access policies:** 
+
+- YouTube: [https://developers.google.com/youtube/terms/developer-policies](https://developers.google.com/youtube/terms/developer-policies)
+
+- Bluesky: [https://docs.bsky.app/docs/support/developer-guidelines](https://docs.bsky.app/docs/support/developer-guidelines)
+
+- Reddit: [https://redditinc.com/policies/developer-terms](https://redditinc.com/policies/developer-terms)
+
+- Tumblr: [https://www.tumblr.com/docs/en/api/v2](https://www.tumblr.com/docs/en/api/v2)
+
+- TikTok: [https://developers.tiktok.com/](https://developers.tiktok.com/) 
+
+- LinkedIn: [https://www.linkedin.com/legal/l/api-terms-of-use](https://www.linkedin.com/legal/l/api-terms-of-use) 
+
+**As you skim, focus on the following questions:**
+
+- What types of data are you allowed to collect?
+
+- Are there restrictions on storing data locally (e.g., on your computer)?
+
+- Are you allowed to share datasets publicly (e.g., GitHub, OSF)?
+
+- Are there restrictions on redistribution or publication of data?
+
+- What happens if the policy is unclear or ambiguous?
+
+## Step 2: Platform and documentation discussion
+
+**With your group, discuss the questions outlined above. Prepare 1-2 points to report back to the full class. In your discussion, focus on the following:**
+
+- What is one important restriction or rule in your platform’s policy?
+
+- Would you feel comfortable uploading a dataset collected from this platform to GitHub? Why or why not?
+
+- If the policy is ambiguous, how would you decide what to do as a researcher?
+
+## Step 3: Papers that use data from these platforms
+
+**Skim the paper using data from your assigned platform. Focus on the "data and methods" section, specifically:** 
+
+- Data collection method and storage (How did they get the data? How did they store the data?)
+
+- Unit of analysis (What is the primary thing being studied? A post, comment, video, hashtag, etc.)
+
+- How they describe limitations of the dataset
+
+**Papers:**
+
+- YouTube: [*From the comments section: Analyzing online public discourse on the first 2020 presidential debate*](https://journals.sagepub.com/doi/10.1177/20531680241271758)
+
+- Bluesky: [*Bluesky as a social media data source for disaster management: investigating spatio-temporal, semantic and emotional patterns for floods and wildfires*](https://link.springer.com/article/10.1007/s42001-025-00448-x)
+
+- Reddit: [*Supportive communication patterns among informal caregivers of older adults on Reddit: A content analysis*](https://journals.sagepub.com/doi/full/10.1177/20552076251376537)
+
+- Tumblr: [*From Flowers to Fascism? The Cottagecore to Tradwife Pipeline on Tumblr*](https://journals.sagepub.com/doi/10.1177/20563051251413920)
+
+- TikTok: [*Talking Environment on TikTok: Messages, Social Actors, and Engagement*](https://doi.org/10.1080/17524032.2025.2453232) 
+
+- LinkedIn: [*Analysing global professional gender gaps using LinkedIn advertising data*](https://doi.org/10.1140/epjds/s13688-021-00294-7) 
+
+**Discuss and answer the following questions with your group:**
+
+- How did the researchers obtain their data?
+
+- What assumptions are being made about the representativeness of the data?
+
+- Do the authors discuss sampling bias or measurement bias? If so, how?
+
+- What limitations are acknowledged? What limitations are missing or underdeveloped?
+
+## Part 2: EDA and descriptive statistics
+
+Select **one** of the Bluesky or YouTube datasets in the `Week_6/lab_data` folder and use it answer the following questions.
+
+### Question 1: Understanding the dataset
+
+First, explore the dataset and **include the code you used** to answer the following questions: 
+
+- What is the unit of analysis (i.e., what does each row represent)?
+
+- How many observations are in the dataset?
+
+- What date range does the dataset cover?
+
+- Who or what is represented in the dataset?
+
+- Who or what might be missing from the dataset?
+
+
+### Question 2: Daily activity
+
+Using the date variable, calculate the number of posts/comments made each day.
+
+Report the following descriptive statistics:
+
+- Mean number of posts/comments per day
+
+- Median number of posts/comments per day
+
+- Minimum number of posts/comments per day
+
+- Maximum number of posts/comments per day
+
+Answer the following questions:
+
+- Is the mean larger or smaller than the median?
+
+- What does this suggest about activity over time in the dataset?
+
+
+### Question 3: Visualizing activity
+
+Create a graph showing the number of posts/comments per day over time. Then, answer the following questions:
+
+- What patterns do you observe?
+
+- Are there any notable spikes or drops in activity?
+
+- What might explain these patterns?
